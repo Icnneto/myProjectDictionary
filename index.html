@@ -14,10 +14,11 @@
 
 <body class="bg-branco-fundo h-screen font-quicksand">
 
-    <header class="flex flex-col mx-4 mb-12">
-        <nav class="flex flex-row items-center h-28 mb-2 place-content-between">
+    <header class="mx-4 mb-12 relative">
 
-            <img class="w-1/3" src="public/img/logo.svg" alt="logo of the company">
+        <nav id="navbar" class="flex flex-row gap-x-36 items-center h-20 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out">
+
+            <img class="w-1/3 mx-4" src="public/img/logo.svg" alt="logo of the company">
 
             <a class="bg-gradient-to-r from-laranja-fraco to-laranja-medio shadow-2xl px-4 py-1 rounded-lg text-branco-fundo text-sm font-semibold"
                 href="#">
@@ -26,8 +27,8 @@
 
         </nav>
 
-        <div class="flex flex-col flex-wrap text-wrap text-ellipsis text-left max-w-full">
-            <h1 class="text-4xl text-laranja-medio font-bold mb-3">
+        <div class="flex flex-col flex-wrap text-wrap text-ellipsis text-left max-w-full mt-24">
+            <h1 class="text-4xl text-laranja-medio font-bold mb-4">
                 <span class="opacity-70">Defina.</span> 
                 <br>
                 <span class="opacity-80">Compartilhe.</span>
@@ -35,7 +36,7 @@
                 <span class="opacity-100">Compreenda.</span>
             </h1>
 
-            <p class="text-base text-preto-padrao text-justify mb-8">
+            <p class="text-lg text-preto-padrao text-justify mb-8">
                 <span class="font-semibold">Crie e compartilhe um dicionário</span> único para garantir que sua equipe fale a mesma língua. <span class="font-semibold">Alinhe o significado dos conceitos</span> e elimine mal-entendidos no seu projeto.
             </p>
 
@@ -43,6 +44,7 @@
                 Explorar!
             </a>
         </div>
+
         <div>
             <img class="hidden" src="public/img/creativity.svg" alt="image of differente light bulbs referring to organization and creativity">
         </div>
@@ -50,22 +52,62 @@
     </header>
 
     <main class="mx-4">
-        <div class="flex flex-row gap-x-6 items-center justify-center">
+        <div class="flex flex-row gap-x-6 items-center justify-center mb-12">
             <hr class="w-2/5 bg-bege-padrao">
             <h3 class="text-laranja-medio text-base">
                 BENEFÍCIOS
             </h3>
             <hr class="w-2/5 bg-bege-padrao">
         </div>
-        <div>
-            <!-- cards -->
+
+        <div class="flex flex-col gap-y-12 justify-center items-center mb-12">
+
+            <div class="flex flex-col justify-center items-center text-center w-3/5">
+                <img class="mb-3" src="public/img/communication.svg" alt="image of a chat through text">
+
+                <h4 class="text-laranja-escuro font-semibold mb-1">
+                    Comunicação
+                </h4>
+
+                <p class="text-preto-padrao text-sm">
+                    Garanta que todos os membros da equipe tenham um entendimento claro dos conceitos e termos 
+                </p>
+            </div>
+
+            <div class="flex flex-col justify-center items-center text-center w-3/5">
+                <img class="mb-3" src="public/img/easyGoing.svg" alt="image of a light bulb">
+
+                <h4 class="text-laranja-escuro font-semibold mb-1">
+                    Facilidade
+                </h4>
+
+                <p class="text-preto-padrao text-sm">
+                    Novos membros da equipe poderão se integrar mais rapidamente, entendendo a terminologia específica utilizada no projeto
+                </p>
+            </div>
+
+            <div class="flex flex-col justify-center items-center text-center w-3/5">
+                <img class="mb-3" src="public/img/consistency.svg" alt="image of a light bulb">
+
+                <h4 class="text-laranja-escuro font-semibold mb-1">
+                    Consistência
+                </h4>
+
+                <p class="text-preto-padrao text-sm">
+                    Proporcione a criação de documentação mais consistente e compreensível
+                </p>
+            </div>
         </div>
 
     </main>
 
-    <footer>
+    <footer class="bg-laranja-medio h-20 flex place-content-center">
 
+        <img class="w-1/3 mx-4 text-center" src="public/img/logo_white.svg" alt="logo of the company">
+        
     </footer>
+
+    <script src="public/js/navBar/navBar.js"></script>
 
 </body>
 
