@@ -20,7 +20,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        quicksand: ['Quicksand', 'serif']
+        quicksand: ['Quicksand', 'serif'],
+        roboto: ['Roboto', 'sans-serif']
       },
       keyframes: {
         bounce: { 
