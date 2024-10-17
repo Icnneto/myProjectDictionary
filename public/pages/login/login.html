@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
     <title>myProjectDictionary - SignUp</title>
 </head>
+
 <body class="bg-branco-fundo h-screen font-quicksand flex justify-center items-center">
 
-    <main class="flex px-6 lg:w-3/4">
+    <main class="flex flex-col items-center justify-center px-6 gap-y-6">
 
-        <!-- apenas para telas grandes -->
-        <section class="hidden lg:block">
-            <img class="" src="" alt="">
-        </section>
+        <div class="flex justify-center items-center">
+            <img class="w-2/4 lg:w-1/6" src="../../img/logo.svg" alt="logo da empresa">
+        </div>
 
-        <section class="border border-laranja-fraco rounded-lg shadow-xl px-3 py-8 gap-y-4 flex flex-col lg:w-1/2 justify-center items-center lg:rounded-l-none">
+        <section class="border border-laranja-fraco rounded-2xl shadow-xl flex flex-col px-3 py-8 gap-y-8 justify-center items-center lg:px-6 lg:py-12 lg:max-w-fit">
 
-            <div class="flex justify-center items-center">
-                <img class="w-3/5" src="../../img/logo.svg" alt="logo da empresa">
+            <div class="flex flex-col gap-y-1 mb-4 text-center">
+                <h3 class="text-2xl text-bege-padrao font-bold">Acesse sua conta</h3>
+                <p class="text-lg text-bege-padrao italic ">Amplie seu universo de termos!</p>
             </div>
 
-            <!-- Adicionar título -->
-            <div class="mb-4">
-                <h3 class="">Algum titulo</h3>
+            <div class="flex -flex-row justify-between items-center gap-x-4">
+                <!-- Google -->
+                <button onclick=""
+                    class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
+                    <img class="w-8" src="../../img/google-mark.svg">
+                </button>
+                <!-- Github -->
+                <button onclick=""
+                    class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
+                    <img class="w-9" src="../../img/github-mark.svg">
+                </button>
+                <!-- Microsoft -->
+                <button onclick=""
+                    class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
+                    <img class="w-8" src="../../img/microsoft-mark.svg">
+                </button>
             </div>
-
-            <!-- Google -->
-            <button onclick="" class="flex flex-row items-center border border-[#747775] w-[183px] h-[40px] px-3 rounded-full lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
-                <img class="w-6 mr-[10px]" src="../../img/sign-in-google.svg">
-                <p class="text-xs font-roboto font-medium">Continue with Google</p>
-            </button>
-            <!-- Github -->
-            <button onclick="" class="flex flex-row items-center border border-[#747775] w-[183px] h-[40px] px-3 rounded-full lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
-                <img class="w-6 mr-[10px]" src="">
-                <p class="text-xs font-roboto font-medium">Github</p>
-            </button>
-            <!-- Microsoft -->
-            <button onclick="" class="flex flex-row items-center border border-[#747775] w-[183px] h-[40px] px-3 rounded-full lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
-                <img class="w-6 mr-[10px]" src="">
-                <p class="text-xs font-roboto font-medium">Microsoft</p>
-            </button>
-        
 
         </section>
     </main>
-    
+
 </body>
+
 </html>
