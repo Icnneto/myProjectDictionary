@@ -20,32 +20,51 @@
     <main class="flex flex-col items-center justify-center px-6 gap-y-6">
 
         <div class="flex justify-center items-center">
-            <img class="w-2/4 lg:w-1/6" src="../../img/logo.svg" alt="logo da empresa">
+            <img class="w-2/4 lg:w-[14%]" src="../../img/logo.svg" alt="logo da empresa">
         </div>
 
-        <section class="border border-laranja-fraco rounded-2xl shadow-xl flex flex-col px-3 py-8 gap-y-8 justify-center items-center lg:px-6 lg:py-12 lg:max-w-fit">
+        <section class="flex flex-col px-3 py-8 gap-y-8 justify-center items-center border border-laranja-fraco rounded-2xl shadow-2xl lg:border-none lg:shadow-none lg:px-6 lg:py-12 lg:max-w-fit">
 
-            <div class="flex flex-col gap-y-1 mb-4 text-center">
-                <h3 class="text-2xl text-bege-padrao font-bold">Acesse sua conta</h3>
-                <p class="text-lg text-bege-padrao italic ">Amplie seu universo de termos!</p>
+            <div class="flex flex-col gap-y-3 mb-4 text-center">
+                <div class="flex flex-row gap-x-6 items-center justify-center">
+                    <hr class="hidden lg:flex lg:w-28 bg-laranja-fraco h-0.5 opacity-30">
+                    <h3 class="text-3xl text-laranja-medio font-semibold">Acesse sua conta</h3>
+                    <hr class="hidden lg:flex lg:w-28 bg-laranja-fraco h-0.5 opacity-30">
+                </div>
+                <p class="text-xl text-laranja-escuro italic ">Amplie seu universo de termos!</p>
             </div>
 
-            <div class="flex -flex-row justify-between items-center gap-x-4">
+            <div class="flex flex-col justify-between items-center gap-y-4">
                 <!-- Google -->
-                <button onclick=""
-                    class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
-                    <img class="w-8" src="../../img/google-mark.svg">
-                </button>
+                <div class="group flex flex-row items-center justify-center gap-x-4 px-2 py-2 w-64 border border-preto-padrao rounded-full focus:border-laranja-fraco lg:hover:border-laranja-fraco cursor-pointer" id="signUpGoogle">
+                    <img class="w-5" src="../../img/google-mark.svg">
+                    <p class="group-hover:font-normal font-light">Sign in with Google</p>
+                </div>
                 <!-- Github -->
-                <button onclick=""
+                <div class="group flex flex-row items-center justify-center gap-x-4 px-2 py-2 w-64 border border-preto-padrao rounded-full focus:border-laranja-fraco lg:hover:border-laranja-fraco cursor-pointer" id="signUpGoogle">
+                    <img class="w-6" src="../../img/github-mark.svg">
+                    <p class="group-hover:font-normal font-light">Sign in with Github</p>
+                </div>
+                <div class="group flex flex-row items-center justify-center gap-x-4 px-2 py-2 w-64 border border-preto-padrao rounded-full focus:border-laranja-fraco lg:hover:border-laranja-fraco cursor-pointer" id="signUpGoogle">
+                    <img class="w-5" src="../../img/microsoft-mark.svg">
+                    <p class="group-hover:font-normal font-light">Sign in with Microsoft</p>
+                </div>
+
+
+
+
+
+                
+                <!-- Github -->
+                <!-- <button onclick=""
                     class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
                     <img class="w-9" src="../../img/github-mark.svg">
-                </button>
+                </button> -->
                 <!-- Microsoft -->
-                <button onclick=""
+                <!-- <button onclick=""
                     class="flex justify-center border items-center border-preto-padrao w-24 h-16 p-6 rounded-2xl focus:border-laranja-fraco lg:hover:border-laranja-fraco lg:hover:bg-[#F2F2F2]">
                     <img class="w-8" src="../../img/microsoft-mark.svg">
-                </button>
+                </button> -->
             </div>
 
         </section>
