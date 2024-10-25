@@ -16,33 +16,70 @@
 
 <body class="bg-branco-fundo h-screen font-quicksand">
 
-    <!-- menu lateral -->
-    <nav>
-        <div class="drawer drawer-end flex justify-end top-10 right-5">
+    <header class="w-full ">
+        <!-- menu lateral -->
+        <nav class="drawer drawer-end flex justify-end top-10 right-5 z-50">
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <label for="my-drawer-4" class="lg:hidden">
-                    <img src="../../img/icon_menu-drawer.svg" alt="icon of a menu list">
+                    <img class="w-3/4" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
                 </label>
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
-                <ul class="bg-branco-fundo flex flex-col gap-y-8 justify-items-start place-items-center text-base-content min-h-full w-3/5 p-4 rounded-tl-2xl rounded-bl-2xl">
-                    <li class="pt-4 mb-4">
-                        <img class="" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
-                    </li>
-                    <li class="flex flex-row items-center gap-x-2">
-                        <img class="w-[14%]" src="../../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
-                        <a class="text-bege-padrao text-lg font-semibold" href="#">Meus Dicionários</a>
-                    </li>
-                    <li class="flex flex-row items-start gap-x-2">
-                        <img class="w-1/5" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
-                        <a class="text-bege-padrao text-lg font-semibold" href="#">Novo Termo</a>
-                    </li>
+                <ul
+                    class="bg-branco-fundo flex flex-col min-h-full w-3/5 p-6 rounded-tl-2xl rounded-bl-2xl justify-between">
+                    <div class="flex flex-col gap-y-4">
+                        <li id="" class="flex flex-row items-center gap-x-4 pt-4 mb-4 justify-start">
+                            <img class="w-1/5" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
+                            <p class="text-preto-padrao text-base font-semibold">Israel Nunes</p>
+                        </li>
+                        <li class="border border-laranja-fraco/20 mb-4"></li>
+                        <li id="" class="flex flex-row items-center gap-x-2 pl-2 ml-1 mb-4 justify-start">
+                            <img class="w-[12%]" src="../../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
+                            <a class="text-preto-padrao text-sm" href="#">Meus Dicionários</a>
+                        </li>
+                        <li id="" class="flex flex-row items-center gap-x-2 pl-2 justify-start">
+                            <img class="w-[15%]" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
+                            <a class="text-preto-padrao text-sm" href="#">Novo Termo</a>
+                        </li>
+                    </div>
+                    <div class="mb-4">
+                        <li id="" class="flex flex-row items-center gap-x-2 pl-3 justify-center">
+                            <img class="w-1/6" src="../../img/icon_logout.svg" alt="icon of a logout simbol">
+                            <button onclick="" class="text-preto-padrao text-sm">Sair</button>
+                        </li>
+                    </div>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
+    <main class="mt-24">
+        <!-- search bar -->
+        <form class="form relative flex flex-row justify-center items-center">
+            <button class="absolute left-14 -translate-y-1/2 top-1/2 p-2">
+                <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-labelledby="search" class="w-5 h-5 text-gray-500">
+                    <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
+                        stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round">
+                    </path>
+                </svg>
+            </button>
+            <input
+                class="input rounded-full px-10 py-3 border border-laranja-fraco w-3/4 focus:outline-none focus:border-2 focus:border-laranja-medio placeholder-gray-400 shadow-md"
+                placeholder="Busque um termo..." required="" type="text" />
+            <button type="reset" class="absolute right-14 -translate-y-1/2 top-1/2 p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </form>
+
+
+    </main>
+
 
 </body>
 
