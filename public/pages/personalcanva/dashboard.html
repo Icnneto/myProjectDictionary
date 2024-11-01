@@ -22,7 +22,7 @@
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <label for="my-drawer-4" class="lg:hidden">
-                    <img class="w-3/4" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
+                    <img class="w-3/4 active:border-2 active:border-laranja-fraco active:rounded-full" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
                 </label>
             </div>
             <div class="drawer-side">
@@ -41,7 +41,7 @@
                         </li>
                         <li id="" class="flex flex-row items-center gap-x-2 pl-2 justify-start">
                             <img class="w-[15%]" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
-                            <a class="text-preto-padrao text-sm" href="#">Novo Termo</a>
+                            <a class="text-preto-padrao text-sm" onclick="my_modal_5.showModal()">Novo Termo</a>
                         </li>
                     </div>
                     <div class="mb-4">
@@ -59,22 +59,59 @@
 
         <!-- search bar -->
         <form class="w-full lg:w-2/5">
-            <div class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:border-laranja-medio cursor-text">
+            <div
+                class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:ring-1 focus:ring-laranja-medio cursor-text">
                 <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
                     aria-labelledby="search" class="w-5 h-5 text-gray-500 mx-4">
                     <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
                         stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round">
                     </path>
                 </svg>
-                <input placeholder="Busque um termo..." autocomplete="off" class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none" data-input id=""> 
+                <input placeholder="Busque um termo..." autocomplete="off"
+                    class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none" data-input_search-bar
+                    id="">
             </div>
-
         </form>
+
+        <!-- Modal for new term -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <form action="" method="" data-form_add-termo class="flex flex-col justify-center gap-y-4">
+
+                    <fieldset class="flex flex-col gap-y-2">
+                        <label for="termo" class="text-preto-padrao text-base font-semibold">Termo</label>
+                        <input name="termo" id="termo" 
+                        class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
+                        data-input_new-term type="text" required autocomplete="off"/>
+                        <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
+                    </fieldset>
+            
+                    <fieldset class="flex flex-col gap-y-2">
+                        <label for="descricao" class="text-preto-padrao text-base font-semibold">Descrição</label>
+                        <textarea name="descricao" id="descricao" 
+                        class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
+                        data-input_new-term type="text" rows="5" required></textarea>
+                        <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
+                    </fieldset>
+
+                    <input value="Adicionar" id="btn_add-termo" type="submit" class="btn bg-gradient-to-r from-laranja-fraco to-laranja-medio text-branco-fundo" />
+
+                </form>
+
+                <div class="modal-action justify-center">
+                    <form method="dialog w-full">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button id="btn_cancelar-termo" class="btn w-[16rem]">Cancelar</button>
+                    </form>
+                </div>
+
+            </div>
+        </dialog>
 
 
     </main>
 
-
+    <script src="../../JS/pages/personalcanva/dashboard.js"></script>
 </body>
 
 </html>
