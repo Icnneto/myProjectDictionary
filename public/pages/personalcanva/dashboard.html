@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="bg-branco-fundo h-screen font-quicksand">
+<body class="h-full font-quicksand">
 
     <header class="w-full">
         <!-- menu lateral -->
@@ -22,7 +22,7 @@
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <label for="my-drawer-4" class="lg:hidden">
-                    <img class="w-3/4 active:border-2 active:border-laranja-fraco active:rounded-full" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
+                    <img class="w-3/4 active:border-2" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
                 </label>
             </div>
             <div class="drawer-side">
@@ -55,10 +55,10 @@
         </nav>
     </header>
 
-    <main class="mt-24 flex justify-center">
+    <main class="mt-24 flex flex-col justify-center items-center">
 
-        <!-- search bar -->
-        <form class="w-full lg:w-2/5">
+        <!-- barra de pesquisa -->
+        <form class="w-full mb-16 lg:w-2/5">
             <div
                 class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:ring-1 focus:ring-laranja-medio cursor-text">
                 <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -73,7 +73,7 @@
             </div>
         </form>
 
-        <!-- Modal for new term -->
+        <!-- Modal para adicionar novo termo -->
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
                 <form action="" method="" data-form_add-termo class="flex flex-col justify-center gap-y-4">
@@ -104,11 +104,40 @@
                         <button id="btn_cancelar-termo" class="btn w-[16rem]">Cancelar</button>
                     </form>
                 </div>
-
             </div>
         </dialog>
-
-
+        
+        <!-- Lista de Termos -->
+         <!-- Irei manter apenas a section - a div do card será todo fetia via js -->
+        <section id="lista-termos" class="flex flex-col gap-y-12 items-center justify-center lg:flex-row lg:flex-wrap lg:gap-x-12">
+            
+            <!-- card -->
+            <div class="flex flex-col border border-slate-200 rounded-xl shadow-lg px-4 py-6 w-[360px] gap-y-6">
+                <!-- Primera seção -->
+                <div class="flex flex-row items-center gap-y-2 gap-x-6 mx-2 place-content-between">
+                    <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">
+                        Termo Teste
+                    </h4>
+                    <div class="flex flex-row gap-x-4 items-center">
+                        <img id="btn-editar_termo" class="cursor-pointer" src="../../img/icon_edit.svg" alt="icone para editar o termo">
+                        <img id="btn-favoritar_termo" class="cursor-pointer" src="../../img/icon_favorite.svg" alt="icone para favoritar o termo">
+                        <img id="btn-deletar_termo" class="cursor-pointer" src="../../img/icon_delete.svg" alt="ícone para deletar o termo">
+                    </div>
+                </div>
+                <!-- Divisória -->
+                <div class="flex justify-center">
+                    <hr class="w-[96%] bg-laranja-fraco h-0.5 opacity-30">
+                </div>
+                <!-- Segunda Seção -->
+                <div class="mx-2">
+                    <p class="text-preto-padrao text-justify">
+                        Isso aqui é o teste da descrição do termo acima. Claro que estou inventando um monte de coisas
+                        para testar sua aplicabilidade. Acredito que desse jeito seja muito mais eficiente do que apenas lorem ipsum.
+                    </p>
+                </div>
+            </div>
+            
+        </section>
     </main>
 
     <script src="../../JS/pages/personalcanva/dashboard.js"></script>
