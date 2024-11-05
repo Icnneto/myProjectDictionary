@@ -3,6 +3,8 @@ const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
 const modalAdicionarTermo = document.querySelector('#my_modal_5');
 
+// puxar os dados do DB -> Se tiver dados, eu chamo criarCard()
+
 // inserir fetch e toda lógica dele
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -14,6 +16,9 @@ formulario.addEventListener('submit', (e) => {
 
     const card = criarCard(listaInputs.termo, listaInputs.descricao);
     secaoListaTermos.appendChild(card);
+
+
+
     
     inputsFormulario.forEach(input => {
         input.value = '';
