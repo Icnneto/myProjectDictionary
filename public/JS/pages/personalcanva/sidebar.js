@@ -1,22 +1,45 @@
 const sidebar = document.querySelector('#sidebar');
 const arrowIcon = document.querySelector('#open-close_sidebar');
-let sidebarOpen = true;
+const iconsSidebar = document.querySelectorAll('[data-animation_sidebar]');
+const textSidebar = document.querySelectorAll('[data-animation_hide]');
 
+let sidebarOpen = localStorage.getItem('sidebarPreference') ? JSON.parse(localStorage.getItem('sidebarPreference')) : true;
 
-arrowIcon.addEventListener('click', () => {
-    sidebarOpen = !sidebarOpen;
+const applySidebarStyle = () => {
     
     if (sidebarOpen) {
         sidebar.classList.add('w-[16%]');
-        sidebar.classList.remove('w-[8%]');
+        sidebar.classList.remove('w-[6%]');
         arrowIcon.classList.remove('rotate-180');
 
+        iconsSidebar.forEach(icon => {
+            icon.classList.remove('rotate-[360deg]');
+        });
+
+        textSidebar.forEach(text => {
+            text.classList.remove('hidden');
+        });
+
     } else {
-        sidebar.classList.add('w-[8%]');
+        sidebar.classList.add('w-[6%]');
         sidebar.classList.remove('w-[16%]');
         arrowIcon.classList.add('rotate-180');
+
+        iconsSidebar.forEach(icon => {
+            icon.classList.add('rotate-[360deg]')
+        });
+
+        textSidebar.forEach(text => {
+            text.classList.add('hidden');
+        });
     }
+};
 
+applySidebarStyle();
+
+arrowIcon.addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+
+    applySidebarStyle();
+    localStorage.setItem('sidebarPreference', JSON.stringify(sidebarOpen));
 });
-
-

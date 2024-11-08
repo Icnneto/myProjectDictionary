@@ -55,69 +55,49 @@
         </nav>
 
         <!-- menu lateral para deskotp -->
-         <!-- <nav class="hidden lg:flex justify-end">
-            <div id="sidebar" class="fixed h-full border border-transparent shadow-2xl px-2 py-8 duration-300 w-[16%]">
-                
-                <img id="open-close_sidebar" src="../../img/icone_arrow.svg" class="w-9 absolute -left-5 top-5 cursor-pointer bg-white rounded-full p-2 border border-slate-200 shadow-2xl">
-               
+        <nav class="hidden lg:flex justify-end">
+            <div id="sidebar" class="fixed h-full border border-transparent shadow-2xl px-2 py-8 duration-500 w-[16%]">
+
+                <img id="open-close_sidebar" src="../../img/icone_arrow.svg"
+                    class="w-9 absolute -left-5 top-5 cursor-pointer bg-white rounded-full p-2 border border-slate-200 shadow-2xl">
+
                 <ul class="flex flex-col justify-between min-h-full">
                     <div class="flex flex-col gap-y-5 items-center">
                         <li id="" class="flex flex-col items-center gap-y-4 mb-4 justify-center">
-                            <img class="w-4/5" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
-                            <p class="text-preto-padrao font-semibold">Israel</p>
+                            <img id="" data-animation_sidebar class="w-14 duration-500" src="../../img/icon_avatar.svg"
+                                alt="icon of a generic avatar">
+                            <p class="text-preto-padrao font-semibold" data-animation_hide>Israel</p>
                         </li>
                         <li class="w-[90%] border border-laranja-fraco/20 mb-4"></li>
-                        <li id="" class="cursor-pointer group flex flex-row items-center gap-x-2 p-1 justify-center hover:bg-slate-100 hover:border hover:border-transparent hover:rounded-lg">
-                            <img class="w-[11%]" src="../../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
-                            <a class="text-preto-padrao text-lg" href="#">Meus Dicionários</a>
+                        <li id=""
+                            class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
+                            <img data-animation_sidebar class="w-6 duration-500" src="../../img/icon_bookmark.svg"
+                                alt="icon of a bookmark in orange">
+                            <a class="text-preto-padrao text-lg" href="#" data-animation_hide>Meus Dicionários</a>
                         </li>
-                        <li id="" class="cursor-pointer group flex flex-row items-center gap-x-2 p-1 justify-center hover:bg-slate-100 hover:border hover:border-transparent hover:rounded-lg">
-                            <img class="w-[13%]" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
-                            <a class="text-preto-padrao text-lg" onclick="my_modal_5.showModal()">Adicionar Termo</a>
+                        <li id="" onclick="my_modal_5.showModal()"
+                            class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
+                            <img data-animation_sidebar class="w-7 duration-500" src="../../img/icon_add-term.svg"
+                                alt="icon of a plus simbol">
+                            <a class="text-preto-padrao text-lg" data-animation_hide>Adicionar Termo</a>
                         </li>
                     </div>
                     <div class="">
-                        <li id="" class="cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:border hover:border-transparent hover:rounded-lg">
-                            <img class="w-[14%]" src="../../img/icon_logout.svg" alt="icon of a logout simbol">
-                            <button onclick="" class="text-preto-padrao text-lg">Sair</button>
+                        <li id="" onclick="teste()"
+                            class="cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
+                            <img data-animation_sidebar class="w-8 duration-500" src="../../img/icon_logout.svg"
+                                alt="icon of a logout simbol">
+                            <p class="text-preto-padrao text-lg" data-animation_hide>Sair</p>
                         </li>
                     </div>
                 </ul>
             </div>
-         </nav> -->
-         <nav class="hidden lg:flex justify-end">
-            <div id="sidebar" class="fixed h-full border border-transparent shadow-2xl px-2 py-8 w-28">
-               
-                <ul class="flex flex-col justify-between min-h-full items-center">
-                    <div class="flex flex-col gap-y-6 items-center">
-                        <li id="" class="cursor-pointer">
-                            <img class="w-16 h-16" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
-                        </li>
-
-                        <li class="w-[90%] border border-laranja-fraco/20 mb-4"></li>
-
-                        <li id="" class="cursor-pointer mb-3 border border-transparent shadow-xl p-3 rounded-full">
-                            <img class="w-9 h-9" src="../../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
-                        </li>
-
-                        <li id="" class="cursor-pointer border border-transparent shadow-xl p-3 rounded-full">
-                            <img class="w-10 h-10" src="../../img/icon_add-term.svg" alt="icon of a plus simbol" onclick="my_modal_5.showModal()">
-                        </li>
-
-                    </div>
-                    <div class="">
-                        <li id="" class="cursor-pointer border border-transparent shadow-xl p-3 rounded-full">
-                            <img class="w-9 h-9" src="../../img/icon_logout.svg" alt="icon of a logout simbol">
-                        </li>
-                    </div>
-                </ul>
-            </div>
-         </nav>
+        </nav>
 
     </header>
 
     <main class="mt-24 flex flex-col justify-center items-center">
-   
+
         <!-- barra de pesquisa -->
         <form class="w-full mb-16 lg:w-2/5">
             <div
@@ -129,8 +109,8 @@
                     </path>
                 </svg>
                 <input placeholder="Busque um termo..." autocomplete="off"
-                    class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none" data-input_search-bar
-                    id="">
+                    class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none"
+                    data-input_search-bar id="">
             </div>
         </form>
 
@@ -141,21 +121,22 @@
 
                     <fieldset class="flex flex-col gap-y-2">
                         <label for="termo" class="text-preto-padrao text-base font-semibold">Termo</label>
-                        <input name="termo" id="termo" 
-                        class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
-                        data-input_new-term type="text" required autocomplete="off"/>
-                        <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
-                    </fieldset>
-            
-                    <fieldset class="flex flex-col gap-y-2">
-                        <label for="descricao" class="text-preto-padrao text-base font-semibold">Descrição</label>
-                        <textarea name="descricao" id="descricao" 
-                        class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
-                        data-input_new-term type="text" rows="5" required></textarea>
+                        <input name="termo" id="termo"
+                            class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
+                            data-input_new-term type="text" required autocomplete="off" />
                         <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
                     </fieldset>
 
-                    <input value="Adicionar" id="btn_add-termo" type="submit" class="btn bg-gradient-to-r from-laranja-fraco to-laranja-medio text-branco-fundo" />
+                    <fieldset class="flex flex-col gap-y-2">
+                        <label for="descricao" class="text-preto-padrao text-base font-semibold">Descrição</label>
+                        <textarea name="descricao" id="descricao"
+                            class="p-2 rounded-lg border border-slate-300 shadow-md text-sm hover:border-laranja-fraco hover:ring-1 hover:ring-laranja-fraco focus:outline-none"
+                            data-input_new-term type="text" rows="5" required></textarea>
+                        <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
+                    </fieldset>
+
+                    <input value="Adicionar" id="btn_add-termo" type="submit"
+                        class="btn bg-gradient-to-r from-laranja-fraco to-laranja-medio text-branco-fundo" />
 
                 </form>
 
@@ -167,22 +148,26 @@
                 </div>
             </div>
         </dialog>
-        
+
         <!-- Lista de Termos -->
-         <!-- Irei manter apenas a section - a div do card será todo fetia via js -->
-        <section id="lista-termos" class="flex flex-col gap-y-12 items-center justify-center lg:flex-row lg:flex-wrap lg:gap-x-12">
-            
+        <!-- Irei manter apenas a section - a div do card será todo feita via js -->
+        <section id="lista-termos"
+            class="flex flex-col gap-y-12 items-center justify-center lg:flex-row lg:flex-wrap lg:gap-x-12">
+
             <!-- card -->
             <div class="flex flex-col border border-slate-200 rounded-xl shadow-lg px-4 py-6 w-[360px] gap-y-6">
                 <!-- Primera seção -->
-                <div class="flex flex-row items-center gap-y-2 gap-x-6 mx-2 place-content-between">
+                <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
                     <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">
                         Termo Teste
                     </h4>
-                    <div class="flex flex-row gap-x-4 items-center">
-                        <img id="btn-editar_termo" class="cursor-pointer" src="../../img/icon_edit.svg" alt="icone para editar o termo">
-                        <img id="btn-favoritar_termo" class="cursor-pointer" src="../../img/icon_favorite.svg" alt="icone para favoritar o termo">
-                        <img id="btn-deletar_termo" class="cursor-pointer" src="../../img/icon_delete.svg" alt="ícone para deletar o termo">
+                    <div class="flex flex-row gap-x-2 items-center">
+                        <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_edit.svg"
+                            alt="icone para editar o termo">
+                        <img id="btn-favoritar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_favorite.svg"
+                            alt="icone para favoritar o termo">
+                        <img id="btn-deletar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_delete.svg"
+                            alt="ícone para deletar o termo">
                     </div>
                 </div>
                 <!-- Divisória -->
@@ -193,13 +178,14 @@
                 <div class="mx-2">
                     <p class="text-preto-padrao text-justify">
                         Isso aqui é o teste da descrição do termo acima. Claro que estou inventando um monte de coisas
-                        para testar sua aplicabilidade. Acredito que desse jeito seja muito mais eficiente do que apenas lorem ipsum.
+                        para testar sua aplicabilidade. Acredito que desse jeito seja muito mais eficiente do que apenas
+                        lorem ipsum.
                     </p>
                 </div>
             </div>
-            
-            
-            
+
+
+
         </section>
     </main>
 
