@@ -17,6 +17,7 @@
 <body class="h-full font-quicksand">
 
     <header class="w-full">
+
         <!-- menu lateral para mobile-->
         <nav class="drawer drawer-end flex justify-end top-10 right-5 z-50 lg:hidden">
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
@@ -41,7 +42,7 @@
                         </li>
                         <li id="" class="flex flex-row items-center gap-x-2 pl-2 justify-start">
                             <img class="w-[15%]" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
-                            <a class="text-preto-padrao text-sm" onclick="my_modal_5.showModal()">Novo Termo</a>
+                            <a class="text-preto-padrao text-sm" onclick="modal_novoTermo.showModal()">Novo Termo</a>
                         </li>
                     </div>
                     <div class="mb-4">
@@ -56,7 +57,7 @@
 
         <!-- menu lateral para deskotp -->
         <nav class="hidden lg:flex justify-end">
-            <div id="sidebar" class="fixed h-full border border-transparent shadow-2xl px-2 py-8 duration-500 w-[16%]">
+            <div id="sidebar" class="z-50 fixed h-full border border-transparent shadow-2xl px-2 py-8 duration-500 w-[16%] bg-branco-fundo">
 
                 <img id="open-close_sidebar" src="../../img/icone_arrow.svg"
                     class="w-9 absolute -left-5 top-5 cursor-pointer bg-white rounded-full p-2 border border-slate-200 shadow-2xl">
@@ -75,7 +76,7 @@
                                 alt="icon of a bookmark in orange">
                             <a class="text-preto-padrao text-lg" href="#" data-animation_hide>Meus Dicionários</a>
                         </li>
-                        <li id="" onclick="my_modal_5.showModal()"
+                        <li id="" onclick="modal_novoTermo.showModal()"
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
                             <img data-animation_sidebar class="w-7 duration-500" src="../../img/icon_add-term.svg"
                                 alt="icon of a plus simbol">
@@ -83,7 +84,7 @@
                         </li>
                     </div>
                     <div class="">
-                        <li id="" onclick="teste()"
+                        <li id="" onclick=""
                             class="cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
                             <img data-animation_sidebar class="w-8 duration-500" src="../../img/icon_logout.svg"
                                 alt="icon of a logout simbol">
@@ -100,8 +101,7 @@
 
         <!-- barra de pesquisa -->
         <form class="w-full mb-16 lg:w-2/5">
-            <div
-                class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:ring-1 focus:ring-laranja-medio cursor-text">
+            <div class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:ring-1 focus:ring-laranja-medio cursor-text">
                 <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
                     aria-labelledby="search" class="w-5 h-5 text-gray-500 mx-4">
                     <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
@@ -115,7 +115,7 @@
         </form>
 
         <!-- Modal para adicionar novo termo -->
-        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <dialog id="modal_novoTermo" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
                 <form action="" method="" data-form_add-termo class="flex flex-col justify-center gap-y-4">
 
@@ -135,27 +135,21 @@
                         <span class="mensagem-erro text-sm text-red-600 mb-2"></span>
                     </fieldset>
 
-                    <input value="Adicionar" id="btn_add-termo" type="submit"
-                        class="btn bg-gradient-to-r from-laranja-fraco to-laranja-medio text-branco-fundo" />
-
+                    <div class="flex flex-row justify-end gap-x-4">
+                        <button id="" class="btn" onclick="cancelarTermo(this)">Cancelar</button>
+                        <input value="Adicionar" id="btn_add-termo" type="submit"
+                            class="btn bg-gradient-to-r from-laranja-fraco to-laranja-medio text-branco-fundo hover:ring-1 hover:ring-laranja-medio" />
+                    </div>
                 </form>
-
-                <div class="modal-action justify-center">
-                    <form method="dialog w-full">
-                        <!-- if there is a button in form, it will close the modal -->
-                        <button id="btn_cancelar-termo" class="btn w-[16rem]">Cancelar</button>
-                    </form>
-                </div>
             </div>
         </dialog>
 
         <!-- Lista de Termos -->
-        <!-- Irei manter apenas a section - a div do card será todo feita via js -->
         <section id="lista-termos"
-            class="flex flex-col gap-y-12 items-top justify-center lg:flex-row lg:flex-wrap lg:gap-x-12">
+            class="flex flex-col gap-y-12 items-top justify-center lg:flex-row lg:flex-wrap lg:gap-x-12 lg:mx-24">
 
             <!-- card -->
-            <div id="card" class="flex flex-col border border-slate-200 rounded-xl shadow-lg px-4 py-6 w-[360px] gap-y-6">
+            <div id="card" class="flex flex-col border border-slate-200 rounded-xl shadow-lg px-4 py-6 w-[300px] gap-y-6">
                 <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
                     <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">
                         Termo Teste

@@ -1,7 +1,45 @@
 const formulario = document.querySelector('[data-form_add-termo]');
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
-const modalAdicionarTermo = document.querySelector('#my_modal_5');
+const modalAdicionarTermo = document.querySelector('#modal_novoTermo');
+
+// Primeiro realizamos a conferência dos dados do input
+const tiposDeErro = ['valueMissing'];
+
+const mensagens = {
+    termo: {
+        valueMissing: "O campo 'Termo' não pode estar vazio.",
+    },
+    descricao: {
+        valueMissing: "O campo 'Descrição' não pode estar vazio.",
+    }
+};
+
+inputsFormulario.forEach(input => {
+    input.addEventListener('blur', () => verificaCampo(input));
+    input.addEventListener('invalid', evento => evento.preventDefault());
+});
+
+function verificaCampo(input) {
+    let mensagem = '';
+    input.setCustomValidity('');
+
+    tiposDeErro.forEach(erro => {
+        if (input.validity[erro]) {
+            mensagem = mensagens[input.name][erro];
+        };
+    });
+
+    const mensagemErro = input.parentNode.querySelector('.mensagem-erro');
+    const validadorInput = input.checkValidity();
+
+    if (!validadorInput) {
+        mensagemErro.textContent = mensagem;
+    } else {
+        mensagemErro.textContent = '';
+    };
+
+};
 
 // puxar os dados do DB -> Se tiver dados, eu chamo criarCard()
 
@@ -16,33 +54,39 @@ formulario.addEventListener('submit', (e) => {
 
     const card = criarCard(listaInputs.termo, listaInputs.descricao);
     secaoListaTermos.appendChild(card);
+    console.log(card);
 
 
 
-    
     inputsFormulario.forEach(input => {
         input.value = '';
     });
+
+    modalAdicionarTermo.close();
 
     // console.log(JSON.stringify(listaInputs));
 });
 
 function criarCard(termo, descricao) {
     const divPai = document.createElement('div');
-    const estilizacaoDivPai = ['flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[360px]', 'gap-y-6']
+    const estilizacaoDivPai = ['flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6'];
     divPai.classList.add(...estilizacaoDivPai);
+    divPai.id = 'card';
 
     const iconeEditar = '../../img/icon_edit.svg';
-    const iconeFavoritar = '../../img/icon_favorite.svg';
     const iconeDeletar = '../../img/icon_delete.svg'
 
     divPai.innerHTML = `
-        <div class="flex flex-row items-center gap-y-2 gap-x-6 mx-2 place-content-between">
+        <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
             <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
-            <div class="flex flex-row gap-x-4 items-center">
-                <img id="btn-editar_termo" class="cursor-pointer" src="${iconeEditar}" alt="icone para editar o termo">
-                <img id="btn-favoritar_termo" class="cursor-pointer" src="${iconeFavoritar}" alt="icone para favoritar o termo">
-                <img id="btn-deletar_termo" class="cursor-pointer" src="${iconeDeletar}" alt="ícone para deletar o termo">
+            <div class="flex flex-row gap-x-2 items-center">
+                <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="${iconeEditar}" 
+                    alt="icone para editar o termo">
+                <svg id="btn-favoritar_termo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-8 h-8 cursor-pointer p-1 rounded-lg fill-none hover:bg-gray-200 stroke-2 stroke-laranja-fraco">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <img id="btn-deletar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="${iconeDeletar}" 
+                    alt="ícone para deletar o termo">
             </div>
         </div>
         <div class="flex justify-center">
@@ -53,4 +97,13 @@ function criarCard(termo, descricao) {
         </div>
     `
     return divPai;
+};
+
+function cancelarTermo() {
+
+    inputsFormulario.forEach(input => {
+        input.value = '';
+    });
+
+    modalAdicionarTermo.close();
 }

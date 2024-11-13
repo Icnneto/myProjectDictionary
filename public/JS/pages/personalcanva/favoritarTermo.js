@@ -1,7 +1,7 @@
 const main = document.querySelector('main');
-const iconeFavoritar = document.querySelectorAll('#btn-favoritar_termo');
+const iconesFavoritar = document.querySelectorAll('#btn-favoritar_termo');
 
-iconeFavoritar.forEach((icone) => {
+iconesFavoritar.forEach((icone) => {
 
     icone.addEventListener('click', (e) => {
         favoritarCard(e);
@@ -55,7 +55,7 @@ function criarToastFavoritado () {
 
     setTimeout(() => {
         toastAdicaoFavoritado.remove();
-    }, 3000);
+    }, 2000);
 
 };
 
@@ -79,6 +79,6 @@ function criarToastRemocaoFavorito () {
 
     setTimeout(() => {
         toastRemocaoFavoritado.remove();
-    }, 3000);
+    }, 2000);
 
 }
