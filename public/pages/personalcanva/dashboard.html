@@ -151,8 +151,8 @@
             <!-- card -->
             <div id="card" class="flex flex-col border border-slate-200 rounded-xl shadow-lg px-4 py-6 w-[300px] gap-y-6">
                 <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
-                    <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">
-                        Termo Teste
+                    <h4 id="cardTermo" class="text-lg text-laranja-escuro font-semibold flex-wrap">
+                        Termo
                     </h4>
                     <div class="flex flex-row gap-x-2 items-center">
                         <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_edit.svg"
@@ -168,21 +168,19 @@
                     <hr class="w-[96%] bg-laranja-fraco h-0.5 opacity-30">
                 </div>
                 <div class="mx-2">
-                    <p class="text-preto-padrao text-justify">
-                        Isso aqui é o teste da descrição do termo acima. Claro que estou inventando um monte de coisas
-                        para testar sua aplicabilidade. Acredito que desse jeito seja muito mais eficiente do que apenas
-                        lorem ipsum.
+                    <p id="cardDescricao" class="text-preto-padrao text-justify">
+                        Aqui vai uma breve descrição acerca do termo em destaque.
                     </p>
                 </div>
             </div>
-
         </section>
     </main>
 
-    <script src="../../JS/pages/personalcanva/formCard.js"></script>
-    <script src="../../JS/pages/personalcanva/sidebar.js"></script>
-    <script src="../../JS/pages/personalcanva/favoritarTermo.js"></script>
-    <script src="../../JS/pages/personalcanva/deletarTermo.js"></script>
+    <script type="module" src="../../JS/pages/personalcanva/formCard.js"></script>
+    <script type="module" src="../../JS/pages/personalcanva/sidebar.js"></script>
+    <script type="module" src="../../JS/pages/personalcanva/favoritarTermo.js"></script>
+    <script type="module" src="../../JS/pages/personalcanva/deletarTermo.js"></script>
+    <script type="module" src="../../JS/pages/personalcanva/editarTermo.js"></script>
 
 </body>
 

@@ -78,7 +78,7 @@ function criarCard(termo, descricao) {
 
     divPai.innerHTML = `
         <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
-            <h4 class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
+            <h4 id="cardTermo" class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
             <div class="flex flex-row gap-x-2 items-center">
                 <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="${iconeEditar}" 
                     alt="icone para editar o termo">
@@ -93,7 +93,7 @@ function criarCard(termo, descricao) {
             <hr class="w-[96%] bg-laranja-fraco h-0.5 opacity-30">
         </div>
         <div class="mx-2">
-            <p class="text-preto-padrao text-justify">${descricao}</p>
+            <p id="cardDescricao" class="text-preto-padrao text-justify">${descricao}</p>
         </div>
     `
     return divPai;
@@ -107,3 +107,5 @@ function cancelarTermo() {
 
     modalAdicionarTermo.close();
 }
+
+export default { cancelarTermo, verificaCampo };

@@ -9,7 +9,6 @@ iconesFavoritar.forEach((icone) => {
     
 });
 
-
 function favoritarCard (e) {
     const icone = e.target;
     const card = icone.closest('#card') || icone.closest('#card-favoritado');
@@ -33,7 +32,6 @@ function favoritarCard (e) {
         criarToastRemocaoFavorito();
     };
 };
-
 
 function criarToastFavoritado () {
     let mensagemSucesso = 'Termo favoritado com sucesso!'
@@ -81,4 +79,4 @@ function criarToastRemocaoFavorito () {
         toastRemocaoFavoritado.remove();
     }, 2000);
 
-}
+};

@@ -11,7 +11,6 @@ iconesDeletar.forEach((icone) => {
 function exibirModalExclusao(e) {
     const icone = e.target;
     const card = icone.closest('#card') || icone.closest('#card-favoritado');
-    console.log(card);
 
     modal.showModal();
 
@@ -23,7 +22,6 @@ function exibirModalExclusao(e) {
         fecharModal('confirmar', card);
     };
 };
-
 
 function criarModalExclusao() {
     const divPai = document.createElement('dialog');
@@ -57,4 +55,4 @@ function fecharModal (acao, card) {
     };
 
     modal.close();
-}
+};
