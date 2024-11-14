@@ -2,6 +2,7 @@ const formulario = document.querySelector('[data-form_add-termo]');
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
 const modalAdicionarTermo = document.querySelector('#modal_novoTermo');
+const btnCancelarTermo = document.querySelector('#btn_cancelar-termo');
 
 // Primeiro realizamos a conferência dos dados do input
 const tiposDeErro = ['valueMissing'];
@@ -99,13 +100,14 @@ function criarCard(termo, descricao) {
     return divPai;
 };
 
-function cancelarTermo() {
 
+btnCancelarTermo.addEventListener('click', () => {
     inputsFormulario.forEach(input => {
         input.value = '';
     });
 
     modalAdicionarTermo.close();
-}
+});
 
-export default { cancelarTermo, verificaCampo };
+
+export default verificaCampo;
