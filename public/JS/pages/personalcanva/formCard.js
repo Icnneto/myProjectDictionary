@@ -45,7 +45,7 @@ function verificaCampo(input) {
 // puxar os dados do DB -> Se tiver dados, eu chamo criarCard()
 
 // inserir fetch e toda lógica dele
-formulario.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const listaInputs = {
@@ -53,19 +53,18 @@ formulario.addEventListener('submit', (e) => {
         'descricao': e.target.elements['descricao'].value
     };
 
-    const card = criarCard(listaInputs.termo, listaInputs.descricao);
-    secaoListaTermos.appendChild(card);
-    console.log(card);
+    const cardSalvo = await enviarDadosParaBackEnd(listaInputs);
 
-
+    if (cardSalvo) {
+        const card = criarCard(listaInputs.termo, listaInputs.descricao);
+        secaoListaTermos.appendChild(card);
+    };
 
     inputsFormulario.forEach(input => {
         input.value = '';
     });
 
     modalAdicionarTermo.close();
-
-    // console.log(JSON.stringify(listaInputs));
 });
 
 function criarCard(termo, descricao) {
@@ -100,6 +99,26 @@ function criarCard(termo, descricao) {
     return divPai;
 };
 
+async function enviarDadosParaBackEnd(dadosCard) {
+    try {
+        const response = await fetch('URL DA API', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosCard),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao salvar o card');
+        }
+
+        const dadosSalvos = await response.json();
+        return dadosSalvos;
+    } catch (erro) {
+        console.error('Erro ao enviar os dados:', erro);
+    }
+}
 
 btnCancelarTermo.addEventListener('click', () => {
     inputsFormulario.forEach(input => {
@@ -108,6 +127,5 @@ btnCancelarTermo.addEventListener('click', () => {
 
     modalAdicionarTermo.close();
 });
-
 
 export default verificaCampo;
