@@ -1,11 +1,45 @@
 import { auth } from "../../../../firebase/firebaseconfig.js";
-import { GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
+import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
 
 const signInGoogle = document.querySelector('#signInGoogle');
 const signInGithub = document.querySelector('#signInGithub');
-const signInMicrosoft = document.querySelector('#signInMicrosoft');
+
+auth.useDeviceLanguage();
 
 signInGoogle.addEventListener('click', async (e) => {
     const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
-})
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // user contém as infos do usuário (nome, foto ...)
+        const user = result.user;
+        console.log(user)
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    
+        // e-mail do usuário que deu erro
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+});
+
+signInGithub.addEventListener('click', async (e) => {
+    const provider = await new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // user contém as infos do usuário (nome, foto ...)
+        const user = result.user;
+        console.log(user);
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        
+        // e-mail do usuário que deu erro
+        const email = error.customData.email;
+        const credential = GithubAuthProvider.credentialFromError(error);
+    });
+});
