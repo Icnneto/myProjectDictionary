@@ -14,8 +14,10 @@ signInGoogle.addEventListener('click', async (e) => {
         const token = credential.accessToken;
         // user contém as infos do usuário (nome, foto ...)
         const user = result.user;
-        console.log(user)
-    }).catch((error) => {
+       
+        //window.location.href = "";
+    })
+    .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
     
@@ -33,8 +35,10 @@ signInGithub.addEventListener('click', async (e) => {
         const token = credential.accessToken;
         // user contém as infos do usuário (nome, foto ...)
         const user = result.user;
-        console.log(user);
-    }).catch((error) => {
+        
+        //window.location.href = "";
+    })
+    .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         

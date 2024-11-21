@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>myProjectDictionary</title>
 
 </head>
@@ -23,7 +23,7 @@
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <label for="my-drawer-4" class="lg:hidden">
-                    <img class="w-3/4 active:border-2" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
+                    <img class="w-3/4 active:border-2" src="../img/icon_avatar.svg" alt="icon of a generic avatar">
                 </label>
             </div>
             <div class="drawer-side">
@@ -32,22 +32,22 @@
                     class="bg-branco-fundo flex flex-col min-h-full w-3/5 p-6 rounded-tl-2xl rounded-bl-2xl justify-between">
                     <div class="flex flex-col gap-y-4">
                         <li id="" class="flex flex-row items-center gap-x-4 pt-4 mb-4 justify-start">
-                            <img class="w-1/5" src="../../img/icon_avatar.svg" alt="icon of a generic avatar">
+                            <img class="w-1/5" src="../img/icon_avatar.svg" alt="icon of a generic avatar">
                             <p class="text-preto-padrao text-base font-semibold">Israel Nunes</p>
                         </li>
                         <li class="border border-laranja-fraco/20 mb-4"></li>
                         <li id="" class="flex flex-row items-center gap-x-2 pl-2 ml-1 mb-4 justify-start">
-                            <img class="w-[12%]" src="../../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
+                            <img class="w-[12%]" src="../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
                             <a class="text-preto-padrao text-sm" href="#">Meus Dicionários</a>
                         </li>
                         <li id="" class="flex flex-row items-center gap-x-2 pl-2 justify-start">
-                            <img class="w-[15%]" src="../../img/icon_add-term.svg" alt="icon of a plus simbol">
+                            <img class="w-[15%]" src="../img/icon_add-term.svg" alt="icon of a plus simbol">
                             <a class="text-preto-padrao text-sm" onclick="modal_novoTermo.showModal()">Novo Termo</a>
                         </li>
                     </div>
                     <div class="mb-4">
                         <li id="" class="flex flex-row items-center gap-x-2 pl-3 justify-center">
-                            <img class="w-1/6" src="../../img/icon_logout.svg" alt="icon of a logout simbol">
+                            <img class="w-1/6" src="../img/icon_logout.svg" alt="icon of a logout simbol">
                             <button onclick="" class="text-preto-padrao text-sm">Sair</button>
                         </li>
                     </div>
@@ -59,26 +59,26 @@
         <nav class="hidden lg:flex justify-end">
             <div id="sidebar" class="z-50 fixed h-full border border-transparent shadow-2xl px-2 py-8 duration-500 w-[16%] bg-branco-fundo">
 
-                <img id="open-close_sidebar" src="../../img/icone_arrow.svg"
+                <img id="open-close_sidebar" src="../img/icone_arrow.svg"
                     class="w-9 absolute -left-5 top-5 cursor-pointer bg-white rounded-full p-2 border border-slate-200 shadow-2xl">
 
                 <ul class="flex flex-col justify-between min-h-full">
                     <div class="flex flex-col gap-y-5 items-center">
                         <li id="" class="flex flex-col items-center gap-y-4 mb-4 justify-center">
-                            <img id="" data-animation_sidebar class="w-14 duration-500" src="../../img/icon_avatar.svg"
+                            <img id="" data-animation_sidebar class="w-14 duration-500" src="../img/icon_avatar.svg"
                                 alt="icon of a generic avatar">
                             <p class="text-preto-padrao font-semibold" data-animation_hide>Israel</p>
                         </li>
                         <li class="w-[90%] border border-laranja-fraco/20 mb-4"></li>
                         <li id=""
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-6 duration-500" src="../../img/icon_bookmark.svg"
+                            <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_bookmark.svg"
                                 alt="icon of a bookmark in orange">
                             <a class="text-preto-padrao text-lg" href="#" data-animation_hide>Meus Dicionários</a>
                         </li>
                         <li id="" onclick="modal_novoTermo.showModal()"
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-7 duration-500" src="../../img/icon_add-term.svg"
+                            <img data-animation_sidebar class="w-7 duration-500" src="../img/icon_add-term.svg"
                                 alt="icon of a plus simbol">
                             <a class="text-preto-padrao text-lg" data-animation_hide>Adicionar Termo</a>
                         </li>
@@ -86,7 +86,7 @@
                     <div class="">
                         <li id="" onclick=""
                             class="cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-8 duration-500" src="../../img/icon_logout.svg"
+                            <img data-animation_sidebar class="w-8 duration-500" src="../img/icon_logout.svg"
                                 alt="icon of a logout simbol">
                             <p class="text-preto-padrao text-lg" data-animation_hide>Sair</p>
                         </li>
@@ -155,12 +155,12 @@
                         Termo
                     </h4>
                     <div class="flex flex-row gap-x-2 items-center">
-                        <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_edit.svg"
+                        <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../img/icon_edit.svg"
                             alt="icone para editar o termo">
                         <svg id="btn-favoritar_termo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-8 h-8 cursor-pointer p-1 rounded-lg fill-none hover:bg-gray-200 stroke-2 stroke-laranja-fraco">
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
-                        <img id="btn-deletar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../../img/icon_delete.svg"
+                        <img id="btn-deletar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="../img/icon_delete.svg"
                             alt="ícone para deletar o termo">
                     </div>
                 </div>
@@ -176,11 +176,12 @@
         </section>
     </main>
 
-    <script type="module" src="../../JS/pages/personalcanva/formCard.js"></script>
-    <script type="module" src="../../JS/pages/personalcanva/sidebar.js"></script>
-    <script type="module" src="../../JS/pages/personalcanva/favoritarTermo.js"></script>
-    <script type="module" src="../../JS/pages/personalcanva/deletarTermo.js"></script>
-    <script type="module" src="../../JS/pages/personalcanva/editarTermo.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/app.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/formCard.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/sidebar.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/favoritarTermo.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/deletarTermo.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/editarTermo.js"></script>
 
 </body>
 
