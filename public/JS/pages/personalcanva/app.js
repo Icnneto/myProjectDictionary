@@ -1,4 +1,4 @@
-import { auth } from "../../../../firebase/firebaseconfig";
+import { auth } from "../../firebaseconfig.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 onAuthStateChanged(auth, (user) => {
