@@ -1,0 +1,591 @@
+[debug] [2024-11-23T15:54:37.496Z] ----------------------------------------------------------------------
+[debug] [2024-11-23T15:54:37.507Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Israel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-23T15:54:37.507Z] CLI Version:   13.27.0
+[debug] [2024-11-23T15:54:37.507Z] Platform:      win32
+[debug] [2024-11-23T15:54:37.507Z] Node Version:  v20.14.0
+[debug] [2024-11-23T15:54:37.508Z] Time:          Sat Nov 23 2024 12:54:37 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-11-23T15:54:37.508Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-23T15:54:37.647Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-23T15:54:37.647Z] > authorizing via signed-in user (israelnetonunes@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-23T15:54:37.652Z] Checked if tokens are valid: false, expires at: 1732377140525
+[debug] [2024-11-23T15:54:37.653Z] Checked if tokens are valid: false, expires at: 1732377140525
+[debug] [2024-11-23T15:54:37.653Z] > refreshing access token with scopes: []
+[debug] [2024-11-23T15:54:37.655Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-23T15:54:37.655Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-23T15:54:38.074Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-23T15:54:38.074Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-23T15:54:38.081Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T15:54:39.114Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T15:54:39.114Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 {"projectNumber":"293124661241","projectId":"myprojectdictionary-9cb59","lifecycleState":"ACTIVE","name":"myProjectDictionary","labels":{"firebase":"enabled"},"createTime":"2024-11-19T10:44:03.158898Z"}
+[debug] [2024-11-23T15:54:39.136Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:54:39.136Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:54:39.137Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project myprojectdictionary-9cb59. This may result in unexpected behavior. 
+[debug] [2024-11-23T15:54:39.147Z] [hub] writing locator at C:\Users\Israel\AppData\Local\Temp\hub-myprojectdictionary-9cb59.json
+[debug] [2024-11-23T15:54:39.155Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-23T15:54:39.161Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:54:39.161Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:54:39.161Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:54:39.161Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-23T15:54:39.166Z] defaultcredentials: writing to file C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json
+[debug] [2024-11-23T15:54:39.168Z] Setting GAC to C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Israel\\AppData\\Roaming\\firebase\\israelnetonunes_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-23T15:54:39.168Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:39.168Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:39.168Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig [none]
+[debug] [2024-11-23T15:54:39.682Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig 200
+[debug] [2024-11-23T15:54:39.682Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig {"projectId":"myprojectdictionary-9cb59","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app"}
+[debug] [2024-11-23T15:54:39.694Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:39.694Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:39.695Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 
+[debug] [2024-11-23T15:54:40.964Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 200
+[debug] [2024-11-23T15:54:40.964Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites {"sites":[{"name":"projects/myprojectdictionary-9cb59/sites/myprojectdictionary-9cb59","defaultUrl":"https://myprojectdictionary-9cb59.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-23T15:54:40.964Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:40.965Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:40.965Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config [none]
+[debug] [2024-11-23T15:54:42.156Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config 200
+[debug] [2024-11-23T15:54:42.156Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config {"projectId":"myprojectdictionary-9cb59","appId":"1:293124661241:web:706708717f94155631e728","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app","apiKey":"AIzaSyB0k65ryDXlCgTlnPIhkHLhiozHGVmzUP4","authDomain":"myprojectdictionary-9cb59.firebaseapp.com","messagingSenderId":"293124661241"}
+[debug] [2024-11-23T15:54:42.159Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:42.159Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:54:42.160Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T15:54:42.471Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T15:54:42.471Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 {"projectId":"myprojectdictionary-9cb59","projectNumber":"293124661241","displayName":"myProjectDictionary","name":"projects/myprojectdictionary-9cb59","resources":{"hostingSite":"myprojectdictionary-9cb59"},"state":"ACTIVE","etag":"1_8abe61eb-02f2-41ef-86cf-be3cc817df3d"}
+[info] i  hosting[myprojectdictionary-9cb59]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[myprojectdictionary-9cb59]: Local server: http://127.0.0.1:5033 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5033\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.14.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.14.0.zip..."}}
+[debug] [2024-11-23T15:54:42.497Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip 
+[debug] [2024-11-23T15:54:42.784Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip 200
+[debug] [2024-11-23T15:54:42.784Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.14.0.zip [stream]
+[debug] [2024-11-23T15:54:43.512Z] Data is 3615311
+[debug] [2024-11-23T15:54:43.513Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.513Z] [unzip] Processing entry: client\
+[debug] [2024-11-23T15:54:43.513Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\
+[debug] [2024-11-23T15:54:43.513Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2024-11-23T15:54:43.514Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2024-11-23T15:54:43.514Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.514Z] [unzip] Writing file: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\favicon-16x16.png
+[debug] [2024-11-23T15:54:43.516Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2024-11-23T15:54:43.516Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2024-11-23T15:54:43.516Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.516Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\safari-pinned-tab.svg
+[debug] [2024-11-23T15:54:43.521Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2024-11-23T15:54:43.521Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2024-11-23T15:54:43.521Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.521Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\favicon.ico
+[debug] [2024-11-23T15:54:43.523Z] [unzip] Entry: client/index.html (compressed_size=1363 bytes, uncompressed_size=3071 bytes)
+[debug] [2024-11-23T15:54:43.523Z] [unzip] Processing entry: client\index.html
+[debug] [2024-11-23T15:54:43.523Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.523Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\index.html
+[debug] [2024-11-23T15:54:43.526Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2024-11-23T15:54:43.526Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2024-11-23T15:54:43.526Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.526Z] [unzip] Writing file: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\android-chrome-192x192.png
+[debug] [2024-11-23T15:54:43.527Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2024-11-23T15:54:43.527Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2024-11-23T15:54:43.527Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.528Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\apple-touch-icon.png
+[debug] [2024-11-23T15:54:43.530Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2024-11-23T15:54:43.531Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2024-11-23T15:54:43.531Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.531Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\android-chrome-512x512.png
+[debug] [2024-11-23T15:54:43.532Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2024-11-23T15:54:43.532Z] [unzip] Processing entry: client\manifest.json
+[debug] [2024-11-23T15:54:43.532Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.533Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\manifest.json
+[debug] [2024-11-23T15:54:43.534Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2024-11-23T15:54:43.534Z] [unzip] Processing entry: client\robots.txt
+[debug] [2024-11-23T15:54:43.534Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.534Z] [unzip] Writing file: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\robots.txt
+[debug] [2024-11-23T15:54:43.535Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2024-11-23T15:54:43.535Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2024-11-23T15:54:43.535Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.535Z] [unzip] Writing file: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\mstile-150x150.png
+[debug] [2024-11-23T15:54:43.536Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.536Z] [unzip] Processing entry: client\assets\
+[debug] [2024-11-23T15:54:43.536Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\
+[debug] [2024-11-23T15:54:43.536Z] [unzip] Entry: client/assets/index-ClZTY_JS.js.map (compressed_size=2328270 bytes, uncompressed_size=9947004 bytes)
+[debug] [2024-11-23T15:54:43.536Z] [unzip] Processing entry: client\assets\index-ClZTY_JS.js.map
+[debug] [2024-11-23T15:54:43.536Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2024-11-23T15:54:43.537Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-ClZTY_JS.js.map
+[debug] [2024-11-23T15:54:43.592Z] [unzip] Entry: client/assets/index-ClZTY_JS.js (compressed_size=567195 bytes, uncompressed_size=2035940 bytes)
+[debug] [2024-11-23T15:54:43.592Z] [unzip] Processing entry: client\assets\index-ClZTY_JS.js
+[debug] [2024-11-23T15:54:43.592Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2024-11-23T15:54:43.592Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-ClZTY_JS.js
+[debug] [2024-11-23T15:54:43.604Z] [unzip] Entry: client/assets/index-BdgySamB.css (compressed_size=35979 bytes, uncompressed_size=298654 bytes)
+[debug] [2024-11-23T15:54:43.605Z] [unzip] Processing entry: client\assets\index-BdgySamB.css
+[debug] [2024-11-23T15:54:43.605Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets
+[debug] [2024-11-23T15:54:43.605Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\index-BdgySamB.css
+[debug] [2024-11-23T15:54:43.607Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.607Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2024-11-23T15:54:43.607Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions\
+[debug] [2024-11-23T15:54:43.608Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2024-11-23T15:54:43.608Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2024-11-23T15:54:43.608Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions
+[debug] [2024-11-23T15:54:43.610Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\extensions\default-extension.png
+[debug] [2024-11-23T15:54:43.611Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.611Z] [unzip] Processing entry: client\assets\img\
+[debug] [2024-11-23T15:54:43.611Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\img\
+[debug] [2024-11-23T15:54:43.612Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2024-11-23T15:54:43.612Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2024-11-23T15:54:43.612Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\img
+[debug] [2024-11-23T15:54:43.612Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\img\database.png
+[debug] [2024-11-23T15:54:43.613Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.613Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2024-11-23T15:54:43.613Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\
+[debug] [2024-11-23T15:54:43.613Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2024-11-23T15:54:43.614Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2024-11-23T15:54:43.614Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.614Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2024-11-23T15:54:43.615Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2024-11-23T15:54:43.615Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2024-11-23T15:54:43.615Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.615Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2024-11-23T15:54:43.616Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2024-11-23T15:54:43.616Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2024-11-23T15:54:43.616Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.616Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2024-11-23T15:54:43.617Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2024-11-23T15:54:43.617Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2024-11-23T15:54:43.617Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.618Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2024-11-23T15:54:43.619Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2024-11-23T15:54:43.619Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2024-11-23T15:54:43.619Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.619Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2024-11-23T15:54:43.620Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2024-11-23T15:54:43.621Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2024-11-23T15:54:43.621Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.621Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_github.svg
+[debug] [2024-11-23T15:54:43.622Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2024-11-23T15:54:43.622Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2024-11-23T15:54:43.622Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.622Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2024-11-23T15:54:43.623Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2024-11-23T15:54:43.623Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2024-11-23T15:54:43.623Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.623Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2024-11-23T15:54:43.624Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2024-11-23T15:54:43.624Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2024-11-23T15:54:43.624Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.624Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2024-11-23T15:54:43.625Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2024-11-23T15:54:43.625Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2024-11-23T15:54:43.625Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.626Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2024-11-23T15:54:43.626Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2024-11-23T15:54:43.627Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2024-11-23T15:54:43.627Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.627Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_email.svg
+[debug] [2024-11-23T15:54:43.628Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2024-11-23T15:54:43.628Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2024-11-23T15:54:43.628Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.628Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_google.svg
+[debug] [2024-11-23T15:54:43.629Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2024-11-23T15:54:43.629Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2024-11-23T15:54:43.629Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons
+[debug] [2024-11-23T15:54:43.629Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2024-11-23T15:54:43.630Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2024-11-23T15:54:43.630Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2024-11-23T15:54:43.630Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.630Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\browserconfig.xml
+[debug] [2024-11-23T15:54:43.631Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2024-11-23T15:54:43.631Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2024-11-23T15:54:43.631Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client
+[debug] [2024-11-23T15:54:43.631Z] [unzip] Writing file: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\client\favicon-32x32.png
+[debug] [2024-11-23T15:54:43.632Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.632Z] [unzip] Processing entry: server\
+[debug] [2024-11-23T15:54:43.632Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\
+[debug] [2024-11-23T15:54:43.632Z] [unzip] Entry: server/server.mjs.map (compressed_size=296496 bytes, uncompressed_size=1355667 bytes)
+[debug] [2024-11-23T15:54:43.632Z] [unzip] Processing entry: server\server.mjs.map
+[debug] [2024-11-23T15:54:43.632Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server
+[debug] [2024-11-23T15:54:43.632Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\server.mjs.map
+[debug] [2024-11-23T15:54:43.640Z] [unzip] Entry: server/server.mjs (compressed_size=315701 bytes, uncompressed_size=1172682 bytes)
+[debug] [2024-11-23T15:54:43.640Z] [unzip] Processing entry: server\server.mjs
+[debug] [2024-11-23T15:54:43.640Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server
+[debug] [2024-11-23T15:54:43.640Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\server.mjs
+[debug] [2024-11-23T15:54:43.646Z] [unzip] Entry: server/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-11-23T15:54:43.646Z] [unzip] Processing entry: server\assets\
+[debug] [2024-11-23T15:54:43.646Z] [unzip] mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\assets\
+[debug] [2024-11-23T15:54:43.646Z] [unzip] Entry: server/assets/multipart-parser-DGCUZdXu.mjs.map (compressed_size=4791 bytes, uncompressed_size=17918 bytes)
+[debug] [2024-11-23T15:54:43.647Z] [unzip] Processing entry: server\assets\multipart-parser-DGCUZdXu.mjs.map
+[debug] [2024-11-23T15:54:43.647Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\assets
+[debug] [2024-11-23T15:54:43.647Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\assets\multipart-parser-DGCUZdXu.mjs.map
+[debug] [2024-11-23T15:54:43.648Z] [unzip] Entry: server/assets/multipart-parser-DGCUZdXu.mjs (compressed_size=2621 bytes, uncompressed_size=10390 bytes)
+[debug] [2024-11-23T15:54:43.648Z] [unzip] Processing entry: server\assets\multipart-parser-DGCUZdXu.mjs
+[debug] [2024-11-23T15:54:43.648Z] [unzip] else mkdir: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\assets
+[debug] [2024-11-23T15:54:43.648Z] [unzip] deflating: C:\Users\Israel\.cache\firebase\emulators\ui-v1.14.0\server\assets\multipart-parser-DGCUZdXu.mjs
+[debug] [2024-11-23T15:54:43.651Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Israel\\Desktop\\Programação\\Projetos Pessoais\\myProjectDictionary\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-23T15:54:43.659Z] Validating nodejs source
+[debug] [2024-11-23T15:54:45.365Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-23T15:54:45.365Z] Building nodejs source
+[debug] [2024-11-23T15:54:45.366Z] Failed to find version of module node: reached end of search path C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-11-23T15:54:45.370Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-23T15:54:45.377Z] Found firebase-functions binary at 'C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8266
+
+[error] FirebaseAppError: Failed to parse service account json file: Error: ENOENT: no such file or directory, open 'C:\serviceAccountKey.json'
+    at ServiceAccount.fromPath (C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\firebase-admin\lib\app\credential-internal.js:124:19)
+    at new ServiceAccountCredential (C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\firebase-admin\lib\app\credential-internal.js:69:28)
+    at Object.cert (C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\firebase-admin\lib\app\credential-factory.js:103:54)
+    at Object.<anonymous> (C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\index.js:8:34)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18) {
+  errorInfo: {
+    code: 'app/invalid-credential',
+    message: "Failed to parse service account json file: Error: ENOENT: no such file or directory, open 'C:\\serviceAccountKey.json'"
+  },
+  codePrefix: 'app'
+}
+
+[debug] [2024-11-23T15:54:46.095Z] Got response code 400; body Failed to generate manifest from function source: Error: Failed to parse service account json file: Error: ENOENT: no such file or directory, open 'C:\serviceAccountKey.json'
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-11-23T15:54:51.116Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5033 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-11-23T15:57:37.134Z] ----------------------------------------------------------------------
+[debug] [2024-11-23T15:57:37.137Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Israel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-23T15:57:37.137Z] CLI Version:   13.27.0
+[debug] [2024-11-23T15:57:37.138Z] Platform:      win32
+[debug] [2024-11-23T15:57:37.138Z] Node Version:  v20.14.0
+[debug] [2024-11-23T15:57:37.138Z] Time:          Sat Nov 23 2024 12:57:37 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-11-23T15:57:37.138Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-23T15:57:37.251Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-23T15:57:37.252Z] > authorizing via signed-in user (israelnetonunes@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-23T15:57:37.255Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:37.255Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:37.256Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T15:57:38.174Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T15:57:38.175Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 {"projectNumber":"293124661241","projectId":"myprojectdictionary-9cb59","lifecycleState":"ACTIVE","name":"myProjectDictionary","labels":{"firebase":"enabled"},"createTime":"2024-11-19T10:44:03.158898Z"}
+[debug] [2024-11-23T15:57:38.185Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:57:38.186Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:57:38.186Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project myprojectdictionary-9cb59. This may result in unexpected behavior. 
+[debug] [2024-11-23T15:57:38.191Z] [hub] writing locator at C:\Users\Israel\AppData\Local\Temp\hub-myprojectdictionary-9cb59.json
+[debug] [2024-11-23T15:57:38.199Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-23T15:57:38.203Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:57:38.203Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:57:38.204Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T15:57:38.204Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-23T15:57:38.208Z] defaultcredentials: writing to file C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json
+[debug] [2024-11-23T15:57:38.210Z] Setting GAC to C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Israel\\AppData\\Roaming\\firebase\\israelnetonunes_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-23T15:57:38.211Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:38.211Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:38.211Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig [none]
+[debug] [2024-11-23T15:57:38.715Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig 200
+[debug] [2024-11-23T15:57:38.715Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig {"projectId":"myprojectdictionary-9cb59","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app"}
+[debug] [2024-11-23T15:57:38.729Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:38.729Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:38.729Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 
+[debug] [2024-11-23T15:57:39.866Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 200
+[debug] [2024-11-23T15:57:39.866Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites {"sites":[{"name":"projects/myprojectdictionary-9cb59/sites/myprojectdictionary-9cb59","defaultUrl":"https://myprojectdictionary-9cb59.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-23T15:57:39.866Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:39.866Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:39.866Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config [none]
+[debug] [2024-11-23T15:57:40.958Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config 200
+[debug] [2024-11-23T15:57:40.958Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config {"projectId":"myprojectdictionary-9cb59","appId":"1:293124661241:web:706708717f94155631e728","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app","apiKey":"AIzaSyB0k65ryDXlCgTlnPIhkHLhiozHGVmzUP4","authDomain":"myprojectdictionary-9cb59.firebaseapp.com","messagingSenderId":"293124661241"}
+[debug] [2024-11-23T15:57:40.963Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:40.963Z] Checked if tokens are valid: true, expires at: 1732380876074
+[debug] [2024-11-23T15:57:40.963Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T15:57:41.267Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T15:57:41.267Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 {"projectId":"myprojectdictionary-9cb59","projectNumber":"293124661241","displayName":"myProjectDictionary","name":"projects/myprojectdictionary-9cb59","resources":{"hostingSite":"myprojectdictionary-9cb59"},"state":"ACTIVE","etag":"1_8abe61eb-02f2-41ef-86cf-be3cc817df3d"}
+[info] i  hosting[myprojectdictionary-9cb59]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[myprojectdictionary-9cb59]: Local server: http://127.0.0.1:5033 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5033\u001b[22m\u001b[24m"}}
+[debug] [2024-11-23T15:57:41.289Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Israel\\Desktop\\Programação\\Projetos Pessoais\\myProjectDictionary\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-23T15:57:41.298Z] Validating nodejs source
+[debug] [2024-11-23T15:57:42.865Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-23T15:57:42.865Z] Building nodejs source
+[debug] [2024-11-23T15:57:42.866Z] Failed to find version of module node: reached end of search path C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-11-23T15:57:42.869Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-23T15:57:42.876Z] Found firebase-functions binary at 'C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8574
+
+[debug] [2024-11-23T15:57:43.547Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-23T15:57:48.572Z] defaultcredentials: writing to file C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json
+[debug] [2024-11-23T15:57:48.573Z] Setting GAC to C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Israel\\AppData\\Roaming\\firebase\\israelnetonunes_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[debug] [2024-11-23T15:57:48.579Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5033 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/logo.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/logo.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /css/styles.css HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /css/styles.css HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/creativity.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/creativity.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/communication.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/communication.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/easyGoing.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/easyGoing.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/consistency.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/consistency.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/logo_white.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/logo_white.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] "GET /img/logotipo.png HTTP/1.1" 200 963 "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:46 +0000] \"GET /img/logotipo.png HTTP/1.1\" 200 963 \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /pages/login.html HTTP/1.1" 200 - "http://127.0.0.1:5033/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /pages/login.html HTTP/1.1\" 200 - \"http://127.0.0.1:5033/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /img/github-mark.svg HTTP/1.1" 200 963 "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /img/github-mark.svg HTTP/1.1\" 200 963 \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /JS/firebaseconfig.js HTTP/1.1" 200 628 "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /JS/firebaseconfig.js HTTP/1.1\" 200 628 \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /JS/pages/login/login.js HTTP/1.1" 200 - "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /JS/pages/login/login.js HTTP/1.1\" 200 - \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /img/google-mark.svg HTTP/1.1" 200 - "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /img/google-mark.svg HTTP/1.1\" 200 - \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] "GET /public/img/logotipo.png HTTP/1.1" 404 - "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:15:58:47 +0000] \"GET /public/img/logotipo.png HTTP/1.1\" 404 - \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2024-11-23T16:57:30.563Z] ----------------------------------------------------------------------
+[debug] [2024-11-23T16:57:30.573Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Israel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-23T16:57:30.573Z] CLI Version:   13.27.0
+[debug] [2024-11-23T16:57:30.573Z] Platform:      win32
+[debug] [2024-11-23T16:57:30.574Z] Node Version:  v20.14.0
+[debug] [2024-11-23T16:57:30.574Z] Time:          Sat Nov 23 2024 13:57:30 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-11-23T16:57:30.574Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-23T16:57:30.715Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-23T16:57:30.716Z] > authorizing via signed-in user (israelnetonunes@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-23T16:57:30.719Z] Checked if tokens are valid: false, expires at: 1732380876074
+[debug] [2024-11-23T16:57:30.719Z] Checked if tokens are valid: false, expires at: 1732380876074
+[debug] [2024-11-23T16:57:30.720Z] > refreshing access token with scopes: []
+[debug] [2024-11-23T16:57:30.721Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-23T16:57:30.721Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-23T16:57:30.936Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-23T16:57:30.936Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-23T16:57:30.943Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T16:57:31.897Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T16:57:31.897Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/myprojectdictionary-9cb59 {"projectNumber":"293124661241","projectId":"myprojectdictionary-9cb59","lifecycleState":"ACTIVE","name":"myProjectDictionary","labels":{"firebase":"enabled"},"createTime":"2024-11-19T10:44:03.158898Z"}
+[debug] [2024-11-23T16:57:31.908Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T16:57:31.908Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T16:57:31.908Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project myprojectdictionary-9cb59. This may result in unexpected behavior. 
+[debug] [2024-11-23T16:57:31.915Z] [hub] writing locator at C:\Users\Israel\AppData\Local\Temp\hub-myprojectdictionary-9cb59.json
+[debug] [2024-11-23T16:57:31.923Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-23T16:57:31.928Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T16:57:31.928Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T16:57:31.928Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T16:57:31.928Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-23T16:57:31.931Z] defaultcredentials: writing to file C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json
+[debug] [2024-11-23T16:57:31.933Z] Setting GAC to C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Israel\\AppData\\Roaming\\firebase\\israelnetonunes_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-23T16:57:31.934Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:31.934Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:31.934Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig [none]
+[debug] [2024-11-23T16:57:32.405Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig 200
+[debug] [2024-11-23T16:57:32.405Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/adminSdkConfig {"projectId":"myprojectdictionary-9cb59","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app"}
+[debug] [2024-11-23T16:57:32.417Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:32.417Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:32.418Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 
+[debug] [2024-11-23T16:57:33.711Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 200
+[debug] [2024-11-23T16:57:33.711Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites {"sites":[{"name":"projects/myprojectdictionary-9cb59/sites/myprojectdictionary-9cb59","defaultUrl":"https://myprojectdictionary-9cb59.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-23T16:57:33.711Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:33.711Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:33.711Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config [none]
+[debug] [2024-11-23T16:57:34.746Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config 200
+[debug] [2024-11-23T16:57:34.746Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config {"projectId":"myprojectdictionary-9cb59","appId":"1:293124661241:web:706708717f94155631e728","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app","apiKey":"AIzaSyB0k65ryDXlCgTlnPIhkHLhiozHGVmzUP4","authDomain":"myprojectdictionary-9cb59.firebaseapp.com","messagingSenderId":"293124661241"}
+[debug] [2024-11-23T16:57:34.751Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:34.751Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T16:57:34.751Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T16:57:35.071Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T16:57:35.072Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 {"projectId":"myprojectdictionary-9cb59","projectNumber":"293124661241","displayName":"myProjectDictionary","name":"projects/myprojectdictionary-9cb59","resources":{"hostingSite":"myprojectdictionary-9cb59"},"state":"ACTIVE","etag":"1_8abe61eb-02f2-41ef-86cf-be3cc817df3d"}
+[info] i  hosting[myprojectdictionary-9cb59]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[myprojectdictionary-9cb59]: Local server: http://127.0.0.1:5033 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5033\u001b[22m\u001b[24m"}}
+[debug] [2024-11-23T16:57:35.093Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Israel\\Desktop\\Programação\\Projetos Pessoais\\myProjectDictionary\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-23T16:57:35.102Z] Validating nodejs source
+[debug] [2024-11-23T16:57:37.301Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-23T16:57:37.301Z] Building nodejs source
+[debug] [2024-11-23T16:57:37.301Z] Failed to find version of module node: reached end of search path C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-11-23T16:57:37.305Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-23T16:57:37.313Z] Found firebase-functions binary at 'C:\Users\Israel\Desktop\Programação\Projetos Pessoais\myProjectDictionary\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8848
+
+[debug] [2024-11-23T16:57:38.030Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-23T16:57:43.057Z] defaultcredentials: writing to file C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json
+[debug] [2024-11-23T16:57:43.058Z] Setting GAC to C:\Users\Israel\AppData\Roaming\firebase\israelnetonunes_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Israel\\AppData\\Roaming\\firebase\\israelnetonunes_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[debug] [2024-11-23T16:57:43.064Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5033 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:16:58:05 +0000] "GET /JS/pages/login/login.js HTTP/1.1" 200 - "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:16:58:05 +0000] \"GET /JS/pages/login/login.js HTTP/1.1\" 200 - \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
+[debug] [2024-11-23T17:00:34.854Z] ----------------------------------------------------------------------
+[debug] [2024-11-23T17:00:34.856Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Israel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only hosting
+[debug] [2024-11-23T17:00:34.857Z] CLI Version:   13.27.0
+[debug] [2024-11-23T17:00:34.857Z] Platform:      win32
+[debug] [2024-11-23T17:00:34.857Z] Node Version:  v20.14.0
+[debug] [2024-11-23T17:00:34.857Z] Time:          Sat Nov 23 2024 14:00:34 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-11-23T17:00:34.857Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-23T17:00:34.971Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-23T17:00:34.971Z] > authorizing via signed-in user (israelnetonunes@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2024-11-23T17:00:34.980Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T17:00:34.980Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-23T17:00:34.980Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5033}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project myprojectdictionary-9cb59. This may result in unexpected behavior. 
+[debug] [2024-11-23T17:00:34.985Z] [hub] writing locator at C:\Users\Israel\AppData\Local\Temp\hub-myprojectdictionary-9cb59.json
+[debug] [2024-11-23T17:00:35.002Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:35.002Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:35.003Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 
+[debug] [2024-11-23T17:00:36.107Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites 200
+[debug] [2024-11-23T17:00:36.107Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/sites {"sites":[{"name":"projects/myprojectdictionary-9cb59/sites/myprojectdictionary-9cb59","defaultUrl":"https://myprojectdictionary-9cb59.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-23T17:00:36.107Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:36.107Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:36.107Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config [none]
+[debug] [2024-11-23T17:00:37.384Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config 200
+[debug] [2024-11-23T17:00:37.385Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59/webApps/-/config {"projectId":"myprojectdictionary-9cb59","appId":"1:293124661241:web:706708717f94155631e728","storageBucket":"myprojectdictionary-9cb59.firebasestorage.app","apiKey":"AIzaSyB0k65ryDXlCgTlnPIhkHLhiozHGVmzUP4","authDomain":"myprojectdictionary-9cb59.firebaseapp.com","messagingSenderId":"293124661241"}
+[debug] [2024-11-23T17:00:37.388Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:37.388Z] Checked if tokens are valid: true, expires at: 1732384649937
+[debug] [2024-11-23T17:00:37.388Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 [none]
+[debug] [2024-11-23T17:00:37.717Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 200
+[debug] [2024-11-23T17:00:37.717Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myprojectdictionary-9cb59 {"projectId":"myprojectdictionary-9cb59","projectNumber":"293124661241","displayName":"myProjectDictionary","name":"projects/myprojectdictionary-9cb59","resources":{"hostingSite":"myprojectdictionary-9cb59"},"state":"ACTIVE","etag":"1_8abe61eb-02f2-41ef-86cf-be3cc817df3d"}
+[info] i  hosting[myprojectdictionary-9cb59]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[myprojectdictionary-9cb59]: Local server: http://127.0.0.1:5033 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5033\u001b[22m\u001b[24m"}}
+[warn] !  emulators: The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project."}}
+[debug] [2024-11-23T17:00:37.736Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5033 │
+└──────────┴────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [23/Nov/2024:17:00:55 +0000] "GET /JS/pages/login/login.js HTTP/1.1" 200 - "http://127.0.0.1:5033/pages/login.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [23/Nov/2024:17:00:55 +0000] \"GET /JS/pages/login/login.js HTTP/1.1\" 200 - \"http://127.0.0.1:5033/pages/login.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\""}}
