@@ -9,7 +9,8 @@ admin.initializeApp({
     // databaseURL: `https://${process.env.PROJECT_ID}.firebaseapp.com`
 });
 
-const cors = require('cors')({origin: 'https://myprojectdictionary-9cb59.web.app'});
+// https://myprojectdictionary-9cb59.web.app
+const cors = require('cors')({origin: 'http://127.0.0.1:5033'});
 
 exports.getApiKey = functions.https.onRequest((req, res) => {
     cors(req, res, () => {
@@ -22,4 +23,5 @@ exports.getApiKey = functions.https.onRequest((req, res) => {
             appId: process.env.APP_ID
         });
     });
-})
+});
+

@@ -1,7 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
 
-fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey')
+
+// https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey
+fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
     .then(response => response.json())
     .then(data => {
         const firebaseConfig = {
@@ -29,7 +31,10 @@ fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKe
                     const token = credential.accessToken;
                     // user contém as infos do usuário (nome, foto ...)
                     const user = result.user;
-                    window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
+
+                    console.log(`Usuário logado: ${user.displayName}`);
+
+                    window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
                 })
                 .catch((error) => {
                     const errorCode = error.code;
