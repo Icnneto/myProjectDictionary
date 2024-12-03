@@ -2,6 +2,12 @@ const sidebar = document.querySelector('#sidebar');
 const arrowIcon = document.querySelector('#open-close_sidebar');
 const iconsSidebar = document.querySelectorAll('[data-animation_sidebar]');
 const textSidebar = document.querySelectorAll('[data-animation_hide]');
+import { name, photo } from "..login/login.js";
+
+let userName = name;
+let userPhoto = photo;
+
+console.log(`User: ${userName} || Caminho da foto: ${userPhoto}`);
 
 let sidebarOpen = localStorage.getItem('sidebarPreference') ? JSON.parse(localStorage.getItem('sidebarPreference')) : true;
 
