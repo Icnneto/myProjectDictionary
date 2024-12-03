@@ -29,9 +29,7 @@ fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKe
                     const token = credential.accessToken;
                     // user contém as infos do usuário (nome, foto ...)
                     const user = result.user;
-                    window.location.href = 'https://myprojectdictionary-9cb59.web.app/';
-
-                    //window.location.href = "";
+                    window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -52,9 +50,7 @@ fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKe
                     // user contém as infos do usuário (nome, foto ...)
                     const user = result.user;
 
-                    window.location.href = 'https://myprojectdictionary-9cb59.web.app/';
-
-                    //window.location.href = "";
+                    window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
                 })
                 .catch((error) => {
                     const errorCode = error.code;

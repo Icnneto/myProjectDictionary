@@ -13,4 +13,5 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// não tem como exportar essas variáveis pois estão fora do escopo
 export default { displayName, photoURL };
