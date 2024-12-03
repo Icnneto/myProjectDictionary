@@ -1,9 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
 
-export let name;
-export let photo;
-export let id;
+export const userInfo = {
+    name: null,
+    photo: null,
+    id: null,
+}
 
 // https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey
 fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
@@ -29,14 +31,13 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // resgatar as informações do usuário e exportar
-                name = user.displayName;
-                photo = user.photoURL;
-                id = user.uid;
+                userInfo.name = user.displayName;
+                userInfo.photo = user.photoURL;
+                userInfo.id = user.uid;
 
                 window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
             } else {
-                // redirecionar para tela de logIn
-                window.location.href = '/';
+                console.log('Realizar login')
             }
         })
 
@@ -49,9 +50,9 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
                     // user contém as infos do usuário (nome, foto ...)
                     const user = result.user;
 
-                    name = user.displayName;
-                    photo = user.photoURL;
-                    id = user.uid;
+                    userInfo.name = user.displayName;
+                    userInfo.photo = user.photoURL;
+                    userInfo.id = user.uid;
 
                     window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
                 })
@@ -74,9 +75,9 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
                     // user contém as infos do usuário (nome, foto ...)
                     const user = result.user;
 
-                    name = user.displayName;
-                    photo = user.photoURL;
-                    id = user.uid;
+                    userInfo.name = user.displayName;
+                    userInfo.photo = user.photoURL;
+                    userInfo.id = user.uid;
 
                     window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
                 })
