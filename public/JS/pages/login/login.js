@@ -36,7 +36,7 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
                 window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
             } else {
                 // redirecionar para tela de logIn
-                window.location.href = 'http://127.0.0.1:5033/pages/login.html';
+                window.location.href = '/';
             }
         })
 
