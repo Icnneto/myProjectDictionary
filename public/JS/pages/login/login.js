@@ -57,12 +57,7 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
                     window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-
-                    // e-mail do usuário que deu erro
-                    const email = error.customData.email;
-                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    console.error('Erro ao realizar o login: ', error);
                 });
         });
 
@@ -82,12 +77,7 @@ fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
                     window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-
-                    // e-mail do usuário que deu erro
-                    const email = error.customData.email;
-                    const credential = GithubAuthProvider.credentialFromError(error);
+                    console.error('Erro ao realizar o login: ', error);
                 });
         });
     });

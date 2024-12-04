@@ -1,10 +1,7 @@
-import { userInfo } from "..login/login.js";
 const sidebar = document.querySelector('#sidebar');
 const arrowIcon = document.querySelector('#open-close_sidebar');
 const iconsSidebar = document.querySelectorAll('[data-animation_sidebar]');
 const textSidebar = document.querySelectorAll('[data-animation_hide]');
-
-console.log(`User: ${userInfo.name}`);
 
 let sidebarOpen = localStorage.getItem('sidebarPreference') ? JSON.parse(localStorage.getItem('sidebarPreference')) : true;
 
