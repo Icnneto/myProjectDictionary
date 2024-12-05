@@ -1,51 +1,34 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { app } from "../../firebaseConfig.js";
 const main = document.querySelector('main');
 
+const auth = getAuth(app);
+
 export const userInfo = {
-    name: null,
-    photo: null,
-    id: null,
-}
+    userName: null,
+    userPhoto: null,
+    userId: null,
+};
 
-// https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey
-fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey')
-    .then(response => response.json())
-    .then(data => {
-        const firebaseConfig = {
-            apiKey: data.apiKey,
-            authDomain: data.authDomain,
-            projectId: data.projectId,
-            storageBucket: data.storageBucket,
-            messagingSenderId: data.messagingSenderId,
-            appId: data.appId
-        };
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        criarToastAviso();
+        setTimeout(() => {
+            window.location.href = 'http://127.0.0.1:5033/pages/login.html';
+        }, 2000);
+    } else {
+        // resgatar as informações do usuário e exportar
+        resgatarEArmazenarInfosUsuario(user);
+    }
+});
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
 
-        onAuthStateChanged(auth, (user) => {
-            if (!user) {
-                criarToastAviso();
-                console.log('Não está logado');
-                setTimeout(() => {
-                    window.location.href = 'http://127.0.0.1:5033/pages/login.html';
-                }, 2000);
-            } else {
-                // resgatar as informações do usuário e exportar
-                resagatarEArmazenarInfosUsuario(user);
-            }
-        });
-    })
+function resgatarEArmazenarInfosUsuario (user) {
+    
+    userInfo.userName = user.displayName,
+    userInfo.userPhoto = user.photoURL,
+    userInfo.userId = user.uid
 
-async function resagatarEArmazenarInfosUsuario (user) {
-    try {
-        userInfo.name = user.displayName;
-        userInfo.photo = user.photoURL;
-        userInfo.id = user.uid;
-    } catch (error) {
-        console.error(`Erro ao atualizar informações do usuário:`, error);
-    };
 };
 
 function criarToastAviso () {
