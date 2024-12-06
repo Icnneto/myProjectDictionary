@@ -3,8 +3,11 @@ const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
 const modalAdicionarTermo = document.querySelector('#modal_novoTermo');
 const btnCancelarTermo = document.querySelector('#btn_cancelar-termo');
+const main = document.querySelector('main');
 
-// Primeiro realizamos a conferência dos dados do input
+// puxar os dados do DB -> Se tiver dados, eu chamo criarEAcrescentarCard()
+// forEach() dado eu chamo criarEAcrescentarCard()
+
 const tiposDeErro = ['valueMissing'];
 
 const mensagens = {
@@ -42,9 +45,6 @@ function verificaCampo(input) {
 
 };
 
-// puxar os dados do DB -> Se tiver dados, eu chamo criarCard()
-
-// inserir fetch e toda lógica dele
 formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -56,9 +56,11 @@ formulario.addEventListener('submit', async (e) => {
     const cardSalvo = await enviarDadosParaBackEnd(listaInputs);
 
     if (cardSalvo) {
-        const card = criarCard(listaInputs.termo, listaInputs.descricao);
-        secaoListaTermos.appendChild(card);
-    };
+        criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
+        toastSucesso();
+    } else {
+        toastFalha();
+    }
 
     inputsFormulario.forEach(input => {
         input.value = '';
@@ -67,14 +69,14 @@ formulario.addEventListener('submit', async (e) => {
     modalAdicionarTermo.close();
 });
 
-function criarCard(termo, descricao) {
+function criarEAcrescentarCard(termo, descricao) {
     const divPai = document.createElement('div');
     const estilizacaoDivPai = ['flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6'];
     divPai.classList.add(...estilizacaoDivPai);
     divPai.id = 'card';
 
-    const iconeEditar = '../../img/icon_edit.svg';
-    const iconeDeletar = '../../img/icon_delete.svg'
+    const iconeEditar = '../img/icon_edit.svg';
+    const iconeDeletar = '../img/icon_delete.svg'
 
     divPai.innerHTML = `
         <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
@@ -96,7 +98,7 @@ function criarCard(termo, descricao) {
             <p id="cardDescricao" class="text-preto-padrao text-justify">${descricao}</p>
         </div>
     `
-    return divPai;
+    secaoListaTermos.appendChild(divPai);
 };
 
 async function enviarDadosParaBackEnd(dadosCard) {
@@ -114,6 +116,7 @@ async function enviarDadosParaBackEnd(dadosCard) {
         }
 
         const dadosSalvos = await response.json();
+
         return dadosSalvos;
     } catch (erro) {
         console.error('Erro ao enviar os dados:', erro);
@@ -128,4 +131,52 @@ btnCancelarTermo.addEventListener('click', () => {
     modalAdicionarTermo.close();
 });
 
-export default verificaCampo;
+function toastSucesso () {
+    let mensagemSucesso = 'Termo adicionado com sucesso!'
+
+    const toastAdicao = document.createElement('div');
+    toastAdicao.classList.add(
+        'toast',
+        'toast-bottom',
+        'toast-right',
+        'z-50'
+    );
+
+    toastAdicao.innerHTML = `
+        <div class="alert font-quicksand text-green-600 border-green-600 bg-branco-fundo">
+            <span>${mensagemSucesso}</span>
+        </div>
+    `
+
+    main.append(toastAdicao);
+
+    setTimeout(() => {
+        toastAdicao.remove();
+    }, 2000);
+
+};
+
+function toastFalha () {
+    let mensagemFalha = 'Falha ao adicionar Termo!'
+
+    const toastFalha = document.createElement('div');
+    toastFalha.classList.add(
+        'toast',
+        'toast-bottom',
+        'toast-right',
+        'z-50'
+    );
+
+    toastFalha.innerHTML = `
+        <div class="alert font-quicksand text-red-600 border-red-600 bg-branco-fundo">
+            <span>${mensagemFalha}</span>
+        </div>
+    `
+
+    main.append(toastFalha);
+
+    setTimeout(() => {
+        toastFalha.remove();
+    }, 2000);
+
+};
