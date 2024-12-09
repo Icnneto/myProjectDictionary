@@ -6,7 +6,7 @@ const serviceAccountKey = 'serviceAccountKey.json';
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccountKey),
-    // databaseURL: `https://${process.env.PROJECT_ID}.firebaseapp.com`
+    databaseURL: "https://myprojectdictionary-9cb59-default-rtdb.firebaseio.com"
 });
 
 // https://myprojectdictionary-9cb59.web.app

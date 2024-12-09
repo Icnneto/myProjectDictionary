@@ -3,10 +3,10 @@ import { app } from "../../firebaseConfig.js";
 
 const db = getDatabase(app);
 
-export function registrarNovoTermo(termo, descricao, uId) {
+function registrarNovoTermo(listaInputs, uId) {
     const dadosCard = {
-        termo: termo,
-        descricao: descricao,
+        termo: listaInputs.termo,
+        descricao: listaInputs.descricao,
         favoritado: false,
     };
 
@@ -20,15 +20,4 @@ export function registrarNovoTermo(termo, descricao, uId) {
 
 };
 
-registrarNovoTermo('termo', 'descrição', 'israel1234');
-
-function teste(userId, name, email) {
-    const reference = ref(db, 'users-termos/' + userId);
-
-    set(reference, {
-        username: name,
-        email: email
-    })
-};
-
-teste('1243', 'israel', 'i@i.com');
+export { registrarNovoTermo };

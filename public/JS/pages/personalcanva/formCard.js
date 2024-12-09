@@ -1,3 +1,4 @@
+import { registrarNovoTermo } from "./realtimeDatabase.js";
 const formulario = document.querySelector('[data-form_add-termo]');
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
@@ -53,19 +54,17 @@ formulario.addEventListener('submit', async (e) => {
         'descricao': e.target.elements['descricao'].value
     };
 
-    // ao invés de baackend chamo função do arquivo realtimeDatabase.js
-    const cardSalvo = await enviarDadosParaBackEnd(listaInputs);
-
-    if (cardSalvo) {
+    try {
+        await registrarNovoTermo(listaInputs, userId);
         criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
-        toastSucesso();
-    } else {
-        toastFalha();
+        exibirToastSucesso();
+
+    } catch (error) {
+        console.error("Erro ao registrar o termo:", error);
+        exibirToastFalha();
     }
 
-    inputsFormulario.forEach(input => {
-        input.value = '';
-    });
+    limparCamposFormularios(inputsFormulario);
 
     modalAdicionarTermo.close();
 });
@@ -102,38 +101,7 @@ function criarEAcrescentarCard(termo, descricao) {
     secaoListaTermos.appendChild(divPai);
 };
 
-// async function enviarDadosParaBackEnd(dadosCard) {
-//     try {
-//         const response = await fetch('URL DA API', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(dadosCard),
-//         });
-
-//         if (!response.ok) {
-//             throw new Error('Erro ao salvar o card');
-//         }
-
-//         const dadosSalvos = await response.json();
-//         console.log(dadosSalvos);
-
-//         return dadosSalvos;
-//     } catch (erro) {
-//         console.error('Erro ao enviar os dados:', erro);
-//     }
-// }
-
-btnCancelarTermo.addEventListener('click', () => {
-    inputsFormulario.forEach(input => {
-        input.value = '';
-    });
-
-    modalAdicionarTermo.close();
-});
-
-function toastSucesso () {
+function exibirToastSucesso() {
     let mensagemSucesso = 'Termo adicionado com sucesso!'
 
     const toastAdicao = document.createElement('div');
@@ -158,7 +126,7 @@ function toastSucesso () {
 
 };
 
-function toastFalha () {
+function exibirToastFalha() {
     let mensagemFalha = 'Falha ao adicionar Termo!'
 
     const toastFalha = document.createElement('div');
@@ -182,3 +150,17 @@ function toastFalha () {
     }, 2000);
 
 };
+
+function limparCamposFormularios(inputs) {
+    inputs.forEach(input => {
+        input.value = '';
+    });
+};
+
+btnCancelarTermo.addEventListener('click', () => {
+    inputsFormulario.forEach(input => {
+        input.value = '';
+    });
+
+    modalAdicionarTermo.close();
+});
