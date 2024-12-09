@@ -9,6 +9,7 @@ export async function initializeFirebase () {
         const firebaseConfig = {
             apiKey: data.apiKey,
             authDomain: data.authDomain,
+            databaseURL: data.databaseURL,
             projectId: data.projectId,
             storageBucket: data.storageBucket,
             messagingSenderId: data.messagingSenderId,

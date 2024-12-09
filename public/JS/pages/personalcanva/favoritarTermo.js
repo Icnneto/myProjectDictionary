@@ -9,6 +9,7 @@ iconesFavoritar.forEach((icone) => {
     
 });
 
+// Favoritado trocará o valor booleano do DB para true - não trocará o id da div
 function favoritarCard (e) {
     const icone = e.target;
     const card = icone.closest('#card') || icone.closest('#card-favoritado');
@@ -20,6 +21,7 @@ function favoritarCard (e) {
         icone.classList.remove('fill-none');
         icone.classList.add('fill-laranja-fraco');
 
+        // enviarDadosBackendInclusao() -> if success chama o criarToastFavoritado()
         criarToastFavoritado();
 
     };
@@ -29,6 +31,7 @@ function favoritarCard (e) {
         icone.classList.remove('fill-laranja-fraco');
         icone.classList.add('fill-none');
 
+        // enviarDadosBackendExclusao() -> if success chama o criarToastRemocaoFavorito()
         criarToastRemocaoFavorito();
     };
 };

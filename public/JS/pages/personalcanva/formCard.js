@@ -53,6 +53,7 @@ formulario.addEventListener('submit', async (e) => {
         'descricao': e.target.elements['descricao'].value
     };
 
+    // ao invés de baackend chamo função do arquivo realtimeDatabase.js
     const cardSalvo = await enviarDadosParaBackEnd(listaInputs);
 
     if (cardSalvo) {
@@ -101,27 +102,28 @@ function criarEAcrescentarCard(termo, descricao) {
     secaoListaTermos.appendChild(divPai);
 };
 
-async function enviarDadosParaBackEnd(dadosCard) {
-    try {
-        const response = await fetch('URL DA API', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dadosCard),
-        });
+// async function enviarDadosParaBackEnd(dadosCard) {
+//     try {
+//         const response = await fetch('URL DA API', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(dadosCard),
+//         });
 
-        if (!response.ok) {
-            throw new Error('Erro ao salvar o card');
-        }
+//         if (!response.ok) {
+//             throw new Error('Erro ao salvar o card');
+//         }
 
-        const dadosSalvos = await response.json();
+//         const dadosSalvos = await response.json();
+//         console.log(dadosSalvos);
 
-        return dadosSalvos;
-    } catch (erro) {
-        console.error('Erro ao enviar os dados:', erro);
-    }
-}
+//         return dadosSalvos;
+//     } catch (erro) {
+//         console.error('Erro ao enviar os dados:', erro);
+//     }
+// }
 
 btnCancelarTermo.addEventListener('click', () => {
     inputsFormulario.forEach(input => {
