@@ -10,6 +10,7 @@ auth.useDeviceLanguage();
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
+        armazenarDadosUsuario(user);
         window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
     } else {
         console.log('Realizar login')
@@ -22,13 +23,9 @@ signInGoogle.addEventListener('click', async (e) => {
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-            // user contém as infos do usuário (nome, foto ...)
             const user = result.user;
-
-            userInfo.name = user.displayName;
-            userInfo.photo = user.photoURL;
-            userInfo.id = user.uid;
-
+            armazenarDadosUsuario(user);
+            
             window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
         })
         .catch((error) => {
@@ -42,12 +39,8 @@ signInGithub.addEventListener('click', async (e) => {
         .then((result) => {
             const credential = GithubAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-            // user contém as infos do usuário (nome, foto ...)
             const user = result.user;
-
-            userInfo.name = user.displayName;
-            userInfo.photo = user.photoURL;
-            userInfo.id = user.uid;
+            armazenarDadosUsuario(user);
 
             window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
         })
@@ -55,3 +48,12 @@ signInGithub.addEventListener('click', async (e) => {
             console.error('Erro ao realizar o login: ', error);
         });
 });
+
+function armazenarDadosUsuario (usuario) {
+    const userInfo = {
+        userName: usuario.displayName,
+        userEmail: usuario.email,
+        userId: usuario.uid
+    }
+    sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+}

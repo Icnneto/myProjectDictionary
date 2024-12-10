@@ -13,8 +13,8 @@ function registrarNovoTermo(listaInputs, uId) {
     const newTermKey = push(child(ref(db), 'termos/')).key;
 
     const updates = {};
-    updates['/termos/' + newTermKey] = dadosCard;
-    updates['/users-termos/' + uId + '/' + newTermKey] = true;
+    updates['termos/' + newTermKey] = dadosCard;
+    updates['users-termos/' + uId + '/' + newTermKey] = true;
 
     return update(ref(db), updates);
 

@@ -4,32 +4,14 @@ const main = document.querySelector('main');
 
 const auth = getAuth(app);
 
-export const userInfo = {
-    userName: null,
-    userPhoto: null,
-    userId: null,
-};
-
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         criarToastAviso();
         setTimeout(() => {
             window.location.href = 'http://127.0.0.1:5033/pages/login.html';
         }, 2000);
-    } else {
-        // resgatar as informações do usuário e exportar
-        resgatarEArmazenarInfosUsuario(user);
-    }
+    };
 });
-
-
-function resgatarEArmazenarInfosUsuario (user) {
-    
-    userInfo.userName = user.displayName,
-    userInfo.userPhoto = user.photoURL,
-    userInfo.userId = user.uid
-
-};
 
 function criarToastAviso () {
     let mensagem = 'Necessário fazer login novamente!'

@@ -6,6 +6,8 @@ const modalAdicionarTermo = document.querySelector('#modal_novoTermo');
 const btnCancelarTermo = document.querySelector('#btn_cancelar-termo');
 const main = document.querySelector('main');
 
+const user = JSON.parse(sessionStorage.getItem('userInfo'));
+
 // puxar os dados do DB -> Se tiver dados, eu chamo criarEAcrescentarCard()
 // forEach() dado eu chamo criarEAcrescentarCard()
 
@@ -55,6 +57,7 @@ formulario.addEventListener('submit', async (e) => {
     };
 
     try {
+        const userId = user.userId;
         await registrarNovoTermo(listaInputs, userId);
         criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
         exibirToastSucesso();
