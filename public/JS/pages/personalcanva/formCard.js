@@ -8,9 +8,6 @@ const main = document.querySelector('main');
 
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
 
-// puxar os dados do DB -> Se tiver dados, eu chamo criarEAcrescentarCard()
-// forEach() dado eu chamo criarEAcrescentarCard()
-
 const tiposDeErro = ['valueMissing'];
 
 const mensagens = {
@@ -167,3 +164,5 @@ btnCancelarTermo.addEventListener('click', () => {
 
     modalAdicionarTermo.close();
 });
+
+export { criarEAcrescentarCard };
