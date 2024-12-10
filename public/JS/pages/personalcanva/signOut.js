@@ -5,7 +5,6 @@ const auth = getAuth(app);
 
 const logOff = document.querySelector('#signOut');
 
-// apagar dados da session storage
 logOff.addEventListener('click', () => {
     signOut(auth).then(() => {
         sessionStorage.removeItem('userInfo');
