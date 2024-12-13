@@ -21,7 +21,7 @@ function resgatarTermoNoDatabase(data) {
                 const termoDatabaseRef = ref(db, `termos/${key}`);
                 onValue(termoDatabaseRef, (snapshot) => {
                     const termo = snapshot.val()
-                    listaTermos.push(termo);
+                    listaTermos.push({key, termo});
                     resolve();
                 });
             });
@@ -34,8 +34,9 @@ function resgatarTermoNoDatabase(data) {
 };
 
 function resgatarDadosEAtualizarPagina(termosUser) {
-    Object.values(termosUser).forEach(termo => {
-        criarEAcrescentarCard(termo.termo, termo.descricao); // Renderiza o card
+    Object.values(termosUser).forEach(entry => {
+        const { key, termo } = entry;
+        criarEAcrescentarCard(termo.termo, termo.descricao, key);
     });
 }
 

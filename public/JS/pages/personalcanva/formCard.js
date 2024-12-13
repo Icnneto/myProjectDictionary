@@ -59,8 +59,7 @@ formulario.addEventListener('submit', async (e) => {
 
     try {
         const userId = user.userId;
-        const processamento = await registrarNovoTermo(listaInputs, userId);
-        carregandoInterface(processamento);
+        await registrarNovoTermo(listaInputs, userId);
         // criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
         exibirToastSucesso();
 
@@ -74,11 +73,12 @@ formulario.addEventListener('submit', async (e) => {
     modalAdicionarTermo.close();
 });
 
-function criarEAcrescentarCard(termo, descricao) {
+function criarEAcrescentarCard(termo, descricao, dbKey) {
     const divPai = document.createElement('div');
     const estilizacaoDivPai = ['flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6'];
     divPai.classList.add(...estilizacaoDivPai);
     divPai.id = 'card';
+    divPai.setAttribute('data-key', `${dbKey}`);
 
     const iconeEditar = '../img/icon_edit.svg';
     const iconeDeletar = '../img/icon_delete.svg'
@@ -176,15 +176,6 @@ function limparCamposFormularios(inputs) {
         input.value = '';
     });
 };
-
-function carregandoInterface (start) {
-    while (start) {
-        btnAddTermo.classList.add('animate-pulse')
-    };
-
-    btnAddTermo.classList.remove('animate-pulse');
-    
-}
 
 btnCancelarTermo.addEventListener('click', () => {
     inputsFormulario.forEach(input => {
