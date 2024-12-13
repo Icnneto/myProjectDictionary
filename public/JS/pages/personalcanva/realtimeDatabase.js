@@ -5,33 +5,39 @@ const user = JSON.parse(sessionStorage.getItem('userInfo'));
 const userId = user.userId;
 const db = getDatabase(app);
 
-// pensar em lógica para recuperar e mostrar os cards sempre que há recarregamento da página
-
-// acessando cards do usuário no DB e carregando na página
 const databaseRef = ref(db, `users-termos/${userId}`);
-// encontrei a lista de termos do usuário
-onValue(databaseRef, (snapshot) => {
+onValue(databaseRef, async (snapshot) => {
     const dataTermosUser = snapshot.val();
-    const termos = resgataTermoNoDatabase(dataTermosUser);
-    // resta pensar na lógica do termo favoritado vir preenchido e com val true
-    Object.values(termos).forEach(termo => {
-        criarEAcrescentarCard(termo.termo, termo.descricao)
-    })
+    const termos = await resgatarTermoNoDatabase(dataTermosUser);
+    resgatarDadosEAtualizarPagina(termos);
 })
 
-// consegui resgatar os dados dos termos
-function resgataTermoNoDatabase(data) {
-    let listaTermos = [];
+function resgatarTermoNoDatabase(data) {
+    return new Promise ((resolve) => {
+        let listaTermos = [];
 
-    Object.keys(data).forEach(key => {
-        let termoDatabaseRef = ref(db, `termos/${key}`);
-        onValue(termoDatabaseRef, (snapshot) => {
-            const termo = snapshot.val()
-            listaTermos.push(termo);
-        })
-    });
-    return listaTermos;
+        const promises = Object.keys(data).map(key => {
+            return new Promise (resolve => {
+                const termoDatabaseRef = ref(db, `termos/${key}`);
+                onValue(termoDatabaseRef, (snapshot) => {
+                    const termo = snapshot.val()
+                    listaTermos.push(termo);
+                    resolve();
+                });
+            });
+        });
+
+        Promise.all(promises).then(() => {
+            resolve(listaTermos)
+        });
+    }); 
 };
+
+function resgatarDadosEAtualizarPagina(termosUser) {
+    Object.values(termosUser).forEach(termo => {
+        criarEAcrescentarCard(termo.termo, termo.descricao); // Renderiza o card
+    });
+}
 
 function registrarNovoTermo(listaInputs, uId) {
     const dadosCard = {
@@ -47,7 +53,6 @@ function registrarNovoTermo(listaInputs, uId) {
     updates['users-termos/' + uId + '/' + newTermKey] = true;
 
     return update(ref(db), updates);
-
 };
 
 export { registrarNovoTermo };

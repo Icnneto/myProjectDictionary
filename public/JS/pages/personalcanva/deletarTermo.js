@@ -1,16 +1,13 @@
 const iconesDeletar = document.querySelectorAll('#btn-deletar_termo');
+const user = JSON.parse(sessionStorage.getItem('userInfo'));
 const modal = criarModalExclusao();
 document.querySelector('main').append(modal);
 
-iconesDeletar.forEach((icone) => {
-    icone.addEventListener('click', (e) => {
-        exibirModalExclusao(e);
-    });
-});
-
 function exibirModalExclusao(e) {
-    const icone = e.target;
-    const card = icone.closest('#card') || icone.closest('#card-favoritado');
+    // const icone = e.target;
+    const card = e.closest('#card') || e.closest('#card-favoritado');
+    console.log(card);
+    
 
     modal.showModal();
 
@@ -56,3 +53,5 @@ function fecharModal (acao, card) {
 
     modal.close();
 };
+
+export { exibirModalExclusao };

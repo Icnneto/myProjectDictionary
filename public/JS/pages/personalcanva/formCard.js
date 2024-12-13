@@ -1,9 +1,13 @@
 import { registrarNovoTermo } from "./realtimeDatabase.js";
+import { favoritarCard } from "./favoritarTermo.js";
+import { exibirModalEdicao } from "./editarTermo.js";
+import { exibirModalExclusao } from "./deletarTermo.js";
 const formulario = document.querySelector('[data-form_add-termo]');
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
 const modalAdicionarTermo = document.querySelector('#modal_novoTermo');
 const btnCancelarTermo = document.querySelector('#btn_cancelar-termo');
+const btnAddTermo = document.querySelector('#btn_add-termo');
 const main = document.querySelector('main');
 
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -55,8 +59,9 @@ formulario.addEventListener('submit', async (e) => {
 
     try {
         const userId = user.userId;
-        await registrarNovoTermo(listaInputs, userId);
-        criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
+        const processamento = await registrarNovoTermo(listaInputs, userId);
+        carregandoInterface(processamento);
+        // criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
         exibirToastSucesso();
 
     } catch (error) {
@@ -98,6 +103,21 @@ function criarEAcrescentarCard(termo, descricao) {
             <p id="cardDescricao" class="text-preto-padrao text-justify">${descricao}</p>
         </div>
     `
+    const btnFavoritar = divPai.querySelector('#btn-favoritar_termo');
+    btnFavoritar.addEventListener('click', (e) => {
+        favoritarCard(e.target);
+    });
+
+    const btnEditarTermo = divPai.querySelector('#btn-editar_termo');
+    btnEditarTermo.addEventListener('click', (e) => {
+        exibirModalEdicao(e.target);
+    });
+
+    const btnDeletar = divPai.querySelector('#btn-deletar_termo');
+    btnDeletar.addEventListener('click', (e) => {
+        exibirModalExclusao(e.target);
+    });
+
     secaoListaTermos.appendChild(divPai);
 };
 
@@ -156,6 +176,15 @@ function limparCamposFormularios(inputs) {
         input.value = '';
     });
 };
+
+function carregandoInterface (start) {
+    while (start) {
+        btnAddTermo.classList.add('animate-pulse')
+    };
+
+    btnAddTermo.classList.remove('animate-pulse');
+    
+}
 
 btnCancelarTermo.addEventListener('click', () => {
     inputsFormulario.forEach(input => {

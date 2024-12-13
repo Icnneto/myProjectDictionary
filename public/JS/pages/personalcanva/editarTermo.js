@@ -1,19 +1,14 @@
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]');
 const iconesEditar = document.querySelectorAll('#btn-editar_termo');
+const user = JSON.parse(sessionStorage.getItem('userInfo'));
 const modalEdicao = criarModalEdicao();
 document.querySelector('main').append(modalEdicao);
 
 // inserir lógica de verificação dos campos - para não permitir que a pessoa salve com tudo em branco
 
-iconesEditar.forEach((icone) => {
-    icone.addEventListener('click', (e) => {
-        exibirModalEdicao(e);
-    });
-});
-
 function exibirModalEdicao (e) {
-    const icone = e.target;
-    const card = icone.closest('#card') || icone.closest('#card-favoritado');
+    // const icone = e.target;
+    const card = e.closest('#card') || e.closest('#card-favoritado');
     console.log(card);
 
     const campoTermoCard = card.querySelector('#cardTermo');
@@ -85,3 +80,5 @@ function fecharModal (acao, novoTermo, novaDescricao, campoTermoModal, campoDesc
 
     modalEdicao.close();
 };
+
+export { exibirModalEdicao };
