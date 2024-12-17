@@ -1,40 +1,30 @@
+import { favoritarTermoDatabase } from "./realtimeDatabase.js";
 const main = document.querySelector('main');
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
 
-// Favoritado trocará o valor booleano do DB para true - não trocará o id da div
-// function favoritarCard (e) {
-//     const icone = e.target;
-//     const card = icone.closest('#card') || icone.closest('#card-favoritado');
-//     console.log(card)
-//     const cardId = card.id;
-    
-//     if (cardId === 'card') {
-//         card.id = cardId + '-favoritado';
-//         icone.classList.remove('fill-none');
-//         icone.classList.add('fill-laranja-fraco');
+async function favoritarCard (e) {
+    const card = e.closest('#card');
+    const cardKey = card.getAttribute('data-key');
 
-//         // enviarDadosBackendInclusao() -> if success chama o criarToastFavoritado()
-//         criarToastFavoritado();
+    try {
+        const res = await favoritarTermoDatabase(cardKey);
+        if (res === 'favoritado') {
+            e.classList.remove('fill-none');
+            e.classList.add('fill-laranja-fraco');
+            criarToastFavoritado();
+        };
 
-//     };
-    
-//     if (cardId === 'card-favoritado') {
-//         card.id = 'card';
-//         icone.classList.remove('fill-laranja-fraco');
-//         icone.classList.add('fill-none');
+        if (res === 'desfavoritado') {
+            e.classList.remove('fill-laranja-fraco');
+            e.classList.add('fill-none');
+            criarToastRemocaoFavorito();
+        }
+        
+    } catch (error) {
+        alert('No momento não conseguimos favoritar seu termo! Tente novamente mais tarde' + error);
+    };
+};    
 
-//         // enviarDadosBackendExclusao() -> if success chama o criarToastRemocaoFavorito()
-//         criarToastRemocaoFavorito();
-//     };
-// };
-
-function favoritarCard (e) {
-    // encontar o elemento pai para poder passar as informações dele para o realtimeDatabase
-    // implementar lógica do true e false para preencher o coração
-    const card = e.closest('#card') || e.closest('#card-favoritado');
-    console.log(e);
-    console.log(card);
-}
 
 function criarToastFavoritado () {
     let mensagemSucesso = 'Termo favoritado com sucesso!'
@@ -84,4 +74,4 @@ function criarToastRemocaoFavorito () {
 
 };
 
-export { favoritarCard };
+export { favoritarCard }
