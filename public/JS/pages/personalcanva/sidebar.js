@@ -3,6 +3,12 @@ const arrowIcon = document.querySelector('#open-close_sidebar');
 const iconsSidebar = document.querySelectorAll('[data-animation_sidebar]');
 const textSidebar = document.querySelectorAll('[data-animation_hide]');
 
+const userSidebarNameSpace = document.querySelector('#user_name');
+const user = JSON.parse(sessionStorage.getItem('userInfo'));
+const userName = user.userName;
+
+userSidebarNameSpace.textContent = userName;
+
 let sidebarOpen = localStorage.getItem('sidebarPreference') ? JSON.parse(localStorage.getItem('sidebarPreference')) : true;
 
 const applySidebarStyle = () => {
