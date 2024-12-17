@@ -60,7 +60,6 @@ formulario.addEventListener('submit', async (e) => {
     try {
         const userId = user.userId;
         await registrarNovoTermo(listaInputs, userId);
-        // criarEAcrescentarCard(listaInputs.termo, listaInputs.descricao);
         exibirToastSucesso();
 
     } catch (error) {

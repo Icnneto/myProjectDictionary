@@ -1,4 +1,4 @@
-import { getDatabase, ref, child, push, update, onValue, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { getDatabase, ref, child, push, update, onValue, onChildAdded, remove } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
 import { app } from "../../firebaseConfig.js";
 import { criarEAcrescentarCard } from "./formCard.js"
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -7,51 +7,19 @@ const db = getDatabase(app);
 
 const databaseRef = ref(db, `users-termos/${userId}`);
 
-// onValue(databaseRef, async (snapshot) => {
-//     const dataTermosUser = snapshot.val();
-//     const termos = await resgatarTermoNoDatabase(dataTermosUser);
-//     resgatarDadosEAtualizarPagina(termos);
-// }, {
-//     onlyOnce: true
-// });
+function referenceToTermInDb (key) {
+    return ref(db, `termos/${key}`);
+};
 
 onChildAdded(databaseRef, async (snapshot) => {
     const termoKey = snapshot.key;
-    const dbTermos = ref(db, `termos/${termoKey}`);
+    const dbTermos = referenceToTermInDb(termoKey);
     onValue(dbTermos, async (snapshot) => {
         criarEAcrescentarCard(snapshot.val().termo, snapshot.val().descricao, termoKey);
     }, {
         onlyOnce: true
     })
-})
-
-// function resgatarTermoNoDatabase(data) {
-//     return new Promise ((resolve) => {
-//         let listaTermos = [];
-
-//         const promises = Object.keys(data).map(key => {
-//             return new Promise (resolve => {
-//                 const termoDatabaseRef = ref(db, `termos/${key}`);
-//                 onValue(termoDatabaseRef, (snapshot) => {
-//                     const termo = snapshot.val()
-//                     listaTermos.push({key, termo});
-//                     resolve();
-//                 });
-//             });
-//         });
-
-//         Promise.all(promises).then(() => {
-//             resolve(listaTermos)
-//         });
-//     }); 
-// };
-
-function resgatarDadosEAtualizarPagina(termosUser) {
-    Object.values(termosUser).forEach(entry => {
-        const { key, termo } = entry;
-        criarEAcrescentarCard(termo.termo, termo.descricao, key);
-    });
-}
+});
 
 function registrarNovoTermo(listaInputs, uId) {
     const dadosCard = {
@@ -69,4 +37,13 @@ function registrarNovoTermo(listaInputs, uId) {
     return update(ref(db), updates);
 };
 
-export { registrarNovoTermo };
+function deletarTermoDatabase (cardKey) {
+    const key = cardKey;
+    const updates = {}
+    updates[`termos/${key}`] = null;
+    updates[`users-termos/${userId}/${key}`] = null;
+
+    return update(ref(db), updates);
+}
+
+export { registrarNovoTermo, deletarTermoDatabase };

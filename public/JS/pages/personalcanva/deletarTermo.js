@@ -1,22 +1,19 @@
-const iconesDeletar = document.querySelectorAll('#btn-deletar_termo');
-const user = JSON.parse(sessionStorage.getItem('userInfo'));
+import { deletarTermoDatabase } from "./realtimeDatabase.js";
 const modal = criarModalExclusao();
 document.querySelector('main').append(modal);
 
 function exibirModalExclusao(e) {
-    // const icone = e.target;
-    const card = e.closest('#card') || e.closest('#card-favoritado');
-    console.log(card);
-    
+    const card = e.closest('#card');
+    const cardKey = card.getAttribute('data-key');
 
     modal.showModal();
 
-    modal.querySelector('#btn_cancelar-deletar_termo').onclick = () => {
-        fecharModal('cancelar', card);
+    modal.querySelector('#btn_cancelar-deletar_termo').onclick = async () => {
+        await fecharModal('cancelar', card, cardKey);
     };
     
-      modal.querySelector('#btn_confirmar-deletar_termo').onclick = () => {
-        fecharModal('confirmar', card);
+    modal.querySelector('#btn_confirmar-deletar_termo').onclick = async () => {
+        await fecharModal('confirmar', card, cardKey);
     };
 };
 
@@ -46,12 +43,19 @@ function criarModalExclusao() {
     return divPai;
 };
 
-function fecharModal (acao, card) {
-    if (acao === 'confirmar'){
-        card.remove()
+async function fecharModal (acao, card, cardKey) {
+    
+    try {
+        if (acao === 'confirmar'){
+            await deletarTermoDatabase(cardKey);
+            card.remove();
+        };
+        modal.close();
+        
+    } catch (error) {
+        console.error(error)
+        modal.close();
     };
-
-    modal.close();
 };
 
 export { exibirModalExclusao };
