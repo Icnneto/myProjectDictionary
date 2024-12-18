@@ -38,17 +38,15 @@ function registrarNovoTermo(listaInputs, uId) {
 };
 
 function deletarTermoDatabase(cardKey) {
-    const key = cardKey;
     const updates = {}
-    updates[`termos/${key}`] = null;
-    updates[`users-termos/${userId}/${key}`] = null;
+    updates[`termos/${cardKey}`] = null;
+    updates[`users-termos/${userId}/${cardKey}`] = null;
 
     return update(ref(db), updates);
 };
 
 async function favoritarTermoDatabase(cardKey) {
-    const key = cardKey;
-    const dbRef = referenceToTermInDb(key);
+    const dbRef = referenceToTermInDb(cardKey);
   
     try {
       const snapshot = await get(child(dbRef, 'favoritado'));
@@ -62,6 +60,21 @@ async function favoritarTermoDatabase(cardKey) {
       console.error("Erro ao favoritar termo:", error);
       return false;
     }
+};
+
+async function editarTermoDatabase (novoTermo, novaDescricao, cardKey) {
+    const dbRef = referenceToTermInDb(cardKey);
+
+    try {            
+        await update(dbRef, { 
+            termo: novoTermo,
+            descricao: novaDescricao
+        });
+
+    } catch (error) {
+        console.error("Erro ao editar termo:", error);
+    }
+
 }
 
-export { registrarNovoTermo, deletarTermoDatabase, favoritarTermoDatabase };
+export { registrarNovoTermo, deletarTermoDatabase, favoritarTermoDatabase, editarTermoDatabase };

@@ -1,14 +1,12 @@
-const inputsFormulario = document.querySelectorAll('[data-input_new-term]');
-const iconesEditar = document.querySelectorAll('#btn-editar_termo');
-const user = JSON.parse(sessionStorage.getItem('userInfo'));
+import { editarTermoDatabase } from "./realtimeDatabase.js";
 const modalEdicao = criarModalEdicao();
 document.querySelector('main').append(modalEdicao);
 
 // inserir lógica de verificação dos campos - para não permitir que a pessoa salve com tudo em branco
 
 function exibirModalEdicao (e) {
-    // const icone = e.target;
-    const card = e.closest('#card') || e.closest('#card-favoritado');
+    const card = e.closest('#card');
+    const cardKey = card.getAttribute('data-key');
     console.log(card);
 
     const campoTermoCard = card.querySelector('#cardTermo');
@@ -23,11 +21,11 @@ function exibirModalEdicao (e) {
     modalEdicao.showModal();
 
     modalEdicao.querySelector('#btn_cancelar-ajuste').onclick = () => {
-        fecharModal('cancelar', campoTermoCard, campoDescricaoCard, campoTermoModal, campoDescricaoModal);
+        fecharModal('cancelar', campoTermoCard, campoDescricaoCard, campoTermoModal, campoDescricaoModal, cardKey);
     };
 
     modalEdicao.querySelector('#btn_add-alteracao').onclick = () => {
-        fecharModal('alterar', campoTermoCard, campoDescricaoCard, campoTermoModal, campoDescricaoModal)
+        fecharModal('alterar', campoTermoCard, campoDescricaoCard, campoTermoModal, campoDescricaoModal, cardKey)
     };
 
 };
@@ -72,12 +70,18 @@ function criarModalEdicao () {
 
 };
 
-function fecharModal (acao, novoTermo, novaDescricao, campoTermoModal, campoDescricaoModal) {
-    if (acao === 'alterar') {
-        novoTermo.innerText = campoTermoModal.value;
-        novaDescricao.innerText = campoDescricaoModal.value;
+async function fecharModal (acao, novoTermo, novaDescricao, campoTermoModal, campoDescricaoModal, cardKey) {
+    try {
+        if (acao === 'alterar') {
+            novoTermo = campoTermoModal.value;
+            novaDescricao = campoDescricaoModal.value;
+            await editarTermoDatabase(novoTermo, novaDescricao, cardKey)
+                .catch(error => console.error(error));
+        };
+        
+    } catch (error) {
+        
     };
-
     modalEdicao.close();
 };
 
