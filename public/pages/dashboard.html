@@ -102,15 +102,16 @@
         <!-- barra de pesquisa -->
         <form class="w-full mb-16 lg:w-2/5">
             <div class="relative h-12 items-center rounded-full mx-3 bg-transparent flex overflow-hidden border border-laranja-fraco hover:border-2 focus:ring-1 focus:ring-laranja-medio cursor-text">
-                <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-                    aria-labelledby="search" class="w-5 h-5 text-gray-500 mx-4">
+                <input placeholder="Busque um termo..." autocomplete="off"
+                class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none pl-6"
+                data-input_search-bar id="search-input">
+                <svg id="search-icon" width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-labelledby="search" class="w-5 h-5 text-gray-500 mx-4 cursor-pointer group">
                     <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
-                        stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round">
+                        stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round" 
+                        class="group-hover:stroke-laranja-medio">
                     </path>
                 </svg>
-                <input placeholder="Busque um termo..." autocomplete="off"
-                    class="h-full flex-1 placeholder:text-gray-400 min-w-0 bg-transparent focus:outline-none"
-                    data-input_search-bar id="">
             </div>
         </form>
 

@@ -2198,12 +2198,12 @@ html:has(.drawer-toggle:checked) {
   margin-left: 0.25rem;
 }
 
-.mr-4 {
-  margin-right: 1rem;
-}
-
 .mt-24 {
   margin-top: 6rem;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -2244,6 +2244,10 @@ html:has(.drawer-toggle:checked) {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .min-h-full {
@@ -2505,6 +2509,11 @@ html:has(.drawer-toggle:checked) {
   border-color: rgb(242 135 5 / 0.2);
 }
 
+.border-laranja-medio {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 116 5 / var(--tw-border-opacity));
+}
+
 .border-preto-padrao {
   --tw-border-opacity: 1;
   border-color: rgb(13 13 13 / var(--tw-border-opacity));
@@ -2657,6 +2666,14 @@ html:has(.drawer-toggle:checked) {
   padding-top: 1rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2713,6 +2730,10 @@ html:has(.drawer-toggle:checked) {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .italic {
@@ -2826,6 +2847,27 @@ html:has(.drawer-toggle:checked) {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hover\:animate-ping:hover {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.hover\:animate-pulse:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .hover\:rounded-lg:hover {
   border-radius: 0.5rem;
 }
@@ -2847,6 +2889,31 @@ html:has(.drawer-toggle:checked) {
 .hover\:bg-slate-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-laranja-fraco:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 135 5 / var(--tw-bg-opacity));
+}
+
+.hover\:fill-laranja-fraco:hover {
+  fill: #F28705;
+}
+
+.hover\:stroke-laranja-medio:hover {
+  stroke: #F27405;
+}
+
+.hover\:stroke-laranja-fraco:hover {
+  stroke: #F28705;
+}
+
+.hover\:stroke-inherit:hover {
+  stroke: inherit;
+}
+
+.hover\:stroke-none:hover {
+  stroke: none;
 }
 
 .hover\:ring-1:hover {
@@ -2888,6 +2955,22 @@ html:has(.drawer-toggle:checked) {
 
 .active\:border-2:active {
   border-width: 2px;
+}
+
+.group:hover .group-hover\:stroke-laranja-fraco {
+  stroke: #F28705;
+}
+
+.group:hover .group-hover\:stroke-laranja-medio {
+  stroke: #F27405;
+}
+
+.group:hover .group-hover\:stroke-preto-padrao {
+  stroke: #0D0D0D;
+}
+
+.group:hover .group-hover\:stroke-laranja-escuro {
+  stroke: #8C3503;
 }
 
 .group:hover .group-hover\:font-normal {
