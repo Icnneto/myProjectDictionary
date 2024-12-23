@@ -3,8 +3,8 @@ const modal = criarModalExclusao();
 document.querySelector('main').append(modal);
 
 function exibirModalExclusao(e) {
-    const card = e.closest('#card');
-    const cardKey = card.getAttribute('data-key');
+    const card = e.closest('[data-card]');
+    const cardKey = card.id;
 
     modal.showModal();
 

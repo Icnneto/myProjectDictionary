@@ -3,8 +3,8 @@ const main = document.querySelector('main');
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
 
 async function favoritarCard (e) {
-    const card = e.closest('#card');
-    const cardKey = card.getAttribute('data-key');
+    const card = e.closest('[data-card]');
+    const cardKey = card.id;
 
     try {
         const res = await favoritarTermoDatabase(cardKey);

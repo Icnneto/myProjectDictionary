@@ -5,12 +5,11 @@ document.querySelector('main').append(modalEdicao);
 // inserir lógica de verificação dos campos - para não permitir que a pessoa salve com tudo em branco
 
 function exibirModalEdicao (e) {
-    const card = e.closest('#card');
-    const cardKey = card.getAttribute('data-key');
-    console.log(card);
+    const card = e.closest('[data-card]');
+    const cardKey = card.id;
 
-    const campoTermoCard = card.querySelector('#cardTermo');
-    const campoDescricaoCard = card.querySelector('#cardDescricao');
+    const campoTermoCard = card.querySelector('[data-card_termo]');
+    const campoDescricaoCard = card.querySelector('[data-card_descricao]');
 
     const campoTermoModal = modalEdicao.querySelector('#termo');
     campoTermoModal.value = campoTermoCard.innerText;

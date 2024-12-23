@@ -1,4 +1,4 @@
-import { getDatabase, ref, child, push, update, onValue, onChildAdded, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { getDatabase, ref, child, push, update, onValue, onChildAdded, get, orderByChild } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
 import { app } from "../../firebaseConfig.js";
 import { criarEAcrescentarCard } from "./formCard.js"
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -7,8 +7,8 @@ const db = getDatabase(app);
 
 const databaseRef = ref(db, `users-termos/${userId}`);
 
-function referenceToTermInDb(key) {
-    return ref(db, `termos/${key}`);
+function referenceToTermInDb(key) { 
+    return ref(db, `termos/${key}`); 
 };
 
 onChildAdded(databaseRef, async (snapshot) => {

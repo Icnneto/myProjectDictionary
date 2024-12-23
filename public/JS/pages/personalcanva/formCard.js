@@ -76,8 +76,8 @@ function criarEAcrescentarCard(termo, descricao, dbKey, favoritado) {
     const divPai = document.createElement('div');
     const estilizacaoDivPai = ['flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6'];
     divPai.classList.add(...estilizacaoDivPai);
-    divPai.id = 'card';
-    divPai.setAttribute('data-key', `${dbKey}`);
+    divPai.id = dbKey;
+    divPai.setAttribute('data-card', 'card')
 
     const iconeEditar = '../img/icon_edit.svg';
     const iconeDeletar = '../img/icon_delete.svg'
@@ -85,7 +85,7 @@ function criarEAcrescentarCard(termo, descricao, dbKey, favoritado) {
 
     divPai.innerHTML = `
         <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
-            <h4 id="cardTermo" class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
+            <h4 data-card_termo class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
             <div class="flex flex-row gap-x-2 items-center">
                 <img id="btn-editar_termo" class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="${iconeEditar}" 
                     alt="icone para editar o termo">
@@ -100,7 +100,7 @@ function criarEAcrescentarCard(termo, descricao, dbKey, favoritado) {
             <hr class="w-[96%] bg-laranja-fraco h-0.5 opacity-30">
         </div>
         <div class="mx-2">
-            <p id="cardDescricao" class="text-preto-padrao text-justify">${descricao}</p>
+            <p data-card_descricao class="text-preto-padrao text-justify">${descricao}</p>
         </div>
     `
     const btnFavoritar = divPai.querySelector('#btn-favoritar_termo');
