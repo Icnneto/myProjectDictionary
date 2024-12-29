@@ -2082,12 +2082,12 @@ html:has(.drawer-toggle:checked) {
   top: 1.25rem;
 }
 
-.top-16 {
-  top: 4rem;
-}
-
 .z-50 {
   z-index: 50;
+}
+
+.-m-1 {
+  margin: -0.25rem;
 }
 
 .mx-2 {
@@ -2144,6 +2144,14 @@ html:has(.drawer-toggle:checked) {
 
 .mt-24 {
   margin-top: 6rem;
+}
+
+.-ml-1 {
+  margin-left: -0.25rem;
+}
+
+.-ml-3 {
+  margin-left: -0.75rem;
 }
 
 .block {
@@ -2250,16 +2258,16 @@ html:has(.drawer-toggle:checked) {
   width: 2.25rem;
 }
 
-.w-\[12\%\] {
-  width: 12%;
-}
-
 .w-\[15\%\] {
   width: 15%;
 }
 
 .w-\[16\%\] {
   width: 16%;
+}
+
+.w-\[18\%\] {
+  width: 18%;
 }
 
 .w-\[300px\] {
@@ -2280,6 +2288,10 @@ html:has(.drawer-toggle:checked) {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[14\%\] {
+  width: 14%;
 }
 
 .min-w-0 {
@@ -2381,10 +2393,6 @@ html:has(.drawer-toggle:checked) {
 
 .gap-y-4 {
   row-gap: 1rem;
-}
-
-.gap-y-5 {
-  row-gap: 1.25rem;
 }
 
 .gap-y-6 {
