@@ -23,7 +23,7 @@
             <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <label for="my-drawer-4" class="lg:hidden">
-                    <img class="w-3/4 active:border-2 rounded-full" src="" alt="profile picture of the user" data-user_image>
+                    <img class="w-3/5 rounded-full" src="" alt="profile picture of the user" data-user_image>
                 </label>
             </div>
             <div class="drawer-side">
@@ -46,7 +46,7 @@
                         </li>
                     </div>
                     <div class="mb-4">
-                        <li id="signOut" class="flex flex-row items-center gap-x-2 pl-3 justify-center">
+                        <li data-sign_out class="flex flex-row items-center gap-x-2 pl-3 justify-center">
                             <img class="w-1/6" src="../img/icon_logout.svg" alt="icon of a logout simbol">
                             <button onclick="" class="text-preto-padrao text-sm">Sair</button>
                         </li>
@@ -71,20 +71,20 @@
                         </li>
                         <li class="w-[90%] border border-laranja-fraco/20 mb-4"></li>
                         <li id=""
-                            class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 -ml-3 justify-center hover:bg-slate-100 hover:rounded-lg">
+                            class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 -ml-2 justify-center hover:bg-slate-100 hover:rounded-lg">
                             <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_favorite.svg"
                                 alt="icon of a heart in orange">
                             <a class="text-preto-padrao text-base" href="#" data-animation_hide>Meus Favoritos</a>
                         </li>
                         <li id="" onclick="modal_novoTermo.showModal()"
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-7 duration-500" src="../img/icon_add-term.svg"
+                            <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_add-term.svg"
                                 alt="icon of a plus simbol">
                             <a class="text-preto-padrao text-base" data-animation_hide>Adicionar Termo</a>
                         </li>
                     </div>
                     <div class="">
-                        <li id="signOut" onclick=""
+                        <li data-sign_out onclick=""
                             class="cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
                             <img data-animation_sidebar class="w-8 duration-500" src="../img/icon_logout.svg"
                                 alt="icon of a logout simbol">
