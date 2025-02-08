@@ -13,7 +13,7 @@ auth.useDeviceLanguage();
 onAuthStateChanged(auth, (user) => {
     if (user) {
         armazenarDadosUsuario(user);
-        window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
+        window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
     } else {
         console.log('Realizar login')
     }
@@ -28,7 +28,7 @@ signInGoogle.addEventListener('click', async (e) => {
             const user = result.user;
             armazenarDadosUsuario(user);
             
-            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
+            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
         })
         .catch((error) => {
             console.error('Erro ao realizar o login: ', error);
@@ -44,7 +44,7 @@ signInGithub.addEventListener('click', async (e) => {
             const user = result.user;
             armazenarDadosUsuario(user);
 
-            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
+            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
         })
         .catch((error) => {
             console.error('Erro ao realizar o login: ', error);
