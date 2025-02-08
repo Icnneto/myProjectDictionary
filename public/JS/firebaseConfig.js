@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 
+// http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey
 // https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey
 export async function initializeFirebase () {
     try {

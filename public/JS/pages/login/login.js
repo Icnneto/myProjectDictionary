@@ -8,10 +8,12 @@ const signInGithub = document.querySelector('#signInGithub');
 
 auth.useDeviceLanguage();
 
+// http://127.0.0.1:5033/pages/dashboard.html
+// https://myprojectdictionary-9cb59.web.app/pages/dashboard.html
 onAuthStateChanged(auth, (user) => {
     if (user) {
         armazenarDadosUsuario(user);
-        window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
+        window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
     } else {
         console.log('Realizar login')
     }
@@ -26,7 +28,7 @@ signInGoogle.addEventListener('click', async (e) => {
             const user = result.user;
             armazenarDadosUsuario(user);
             
-            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
+            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
         })
         .catch((error) => {
             console.error('Erro ao realizar o login: ', error);
@@ -42,7 +44,7 @@ signInGithub.addEventListener('click', async (e) => {
             const user = result.user;
             armazenarDadosUsuario(user);
 
-            window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
+            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.htmll';
         })
         .catch((error) => {
             console.error('Erro ao realizar o login: ', error);

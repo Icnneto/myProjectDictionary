@@ -1,4 +1,4 @@
-import { getDatabase, ref, child, push, update, onValue, onChildAdded, get, orderByChild } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { getDatabase, ref, child, push, update, onValue, onChildAdded, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
 import { app } from "../../firebaseConfig.js";
 import { criarEAcrescentarCard } from "./formCard.js"
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -7,8 +7,8 @@ const db = getDatabase(app);
 
 const databaseRef = ref(db, `users-termos/${userId}`);
 
-function referenceToTermInDb(key) { 
-    return ref(db, `termos/${key}`); 
+function referenceToTermInDb(key) {
+    return ref(db, `termos/${key}`);
 };
 
 onChildAdded(databaseRef, async (snapshot) => {
@@ -19,8 +19,10 @@ onChildAdded(databaseRef, async (snapshot) => {
     }, {
         onlyOnce: true
     })
+
 });
 
+// Adiciona um novo termo ao banco de dados e atualiza a referência no nó do usuário
 function registrarNovoTermo(listaInputs, uId) {
     const dadosCard = {
         termo: listaInputs.termo,
@@ -47,26 +49,26 @@ function deletarTermoDatabase(cardKey) {
 
 async function favoritarTermoDatabase(cardKey) {
     const dbRef = referenceToTermInDb(cardKey);
-  
-    try {
-      const snapshot = await get(child(dbRef, 'favoritado'));
-      await update(dbRef, { favoritado: !(snapshot.val()) });
 
-      const updatedSnapshot = await get(child(dbRef, 'favoritado'));
-      const favoritadoVal = updatedSnapshot.val();
-      return favoritadoVal ? 'favoritado' : 'desfavoritado';
+    try {
+        const snapshot = await get(child(dbRef, 'favoritado'));
+        await update(dbRef, { favoritado: !(snapshot.val()) });
+
+        const updatedSnapshot = await get(child(dbRef, 'favoritado'));
+        const favoritadoVal = updatedSnapshot.val();
+        return favoritadoVal ? 'favoritado' : 'desfavoritado';
 
     } catch (error) {
-      console.error("Erro ao favoritar termo:", error);
-      return false;
+        console.error("Erro ao favoritar termo:", error);
+        return false;
     }
 };
 
-async function editarTermoDatabase (novoTermo, novaDescricao, cardKey) {
+async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
     const dbRef = referenceToTermInDb(cardKey);
 
-    try {            
-        await update(dbRef, { 
+    try {
+        await update(dbRef, {
             termo: novoTermo,
             descricao: novaDescricao
         });

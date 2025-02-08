@@ -9,6 +9,7 @@ admin.initializeApp({
     databaseURL: "https://myprojectdictionary-9cb59-default-rtdb.firebaseio.com"
 });
 
+// http://127.0.0.1:5033
 // https://myprojectdictionary-9cb59.web.app
 const cors = require('cors')({origin: 'http://127.0.0.1:5033'});
 
