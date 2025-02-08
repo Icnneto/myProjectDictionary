@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "algoliasearch": "^5.20.1",
-    "cross-spawn": "^7.0.6"
+    "cross-spawn": "^7.0.6",
+    "firebase": "^11.2.0"
   }
 }
