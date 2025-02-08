@@ -23,21 +23,21 @@ onChildAdded(databaseRef, async (snapshot) => {
 });
 
 // Adiciona um novo termo ao banco de dados e atualiza a referência no nó do usuário
-function registrarNovoTermo(listaInputs, uId) {
-    const dadosCard = {
-        termo: listaInputs.termo,
-        descricao: listaInputs.descricao,
-        favoritado: false,
-    };
+// function registrarNovoTermo(listaInputs, uId) {
+//     const dadosCard = {
+//         termo: listaInputs.termo,
+//         descricao: listaInputs.descricao,
+//         favoritado: false,
+//     };
 
-    const newTermKey = push(child(ref(db), 'termos/')).key;
+//     const newTermKey = push(child(ref(db), 'termos/')).key;
 
-    const updates = {};
-    updates['termos/' + newTermKey] = dadosCard;
-    updates['users-termos/' + uId + '/' + newTermKey] = true;
+//     const updates = {};
+//     updates['termos/' + newTermKey] = dadosCard;
+//     updates['users-termos/' + uId + '/' + newTermKey] = true;
 
-    return update(ref(db), updates);
-};
+//     return update(ref(db), updates);
+// };
 
 function deletarTermoDatabase(cardKey) {
     const updates = {}
