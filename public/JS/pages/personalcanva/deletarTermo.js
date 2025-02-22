@@ -1,4 +1,4 @@
-import { deletarTermoDatabase } from "./realtimeDatabase.js";
+// import { deletarTermoDatabase } from "./realtimeDatabase.js";
 const modal = criarModalExclusao();
 document.querySelector('main').append(modal);
 

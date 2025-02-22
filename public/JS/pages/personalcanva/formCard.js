@@ -1,4 +1,4 @@
-import { registrarNovoTermo } from "./realtimeDatabase.js";
+import { registrarNovoTermo } from "./firestore/firestore.js";
 import { favoritarCard } from "./favoritarTermo.js";
 import { exibirModalEdicao } from "./editarTermo.js";
 import { exibirModalExclusao } from "./deletarTermo.js";

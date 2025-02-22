@@ -1,4 +1,4 @@
-import { editarTermoDatabase } from "./realtimeDatabase.js";
+// import { editarTermoDatabase } from "./realtimeDatabase.js";
 const modalEdicao = criarModalEdicao();
 document.querySelector('main').append(modalEdicao);
 
