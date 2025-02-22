@@ -2,11 +2,27 @@ const sidebar = document.querySelector('#sidebar');
 const arrowIcon = document.querySelector('#open-close_sidebar');
 const iconsSidebar = document.querySelectorAll('[data-animation_sidebar]');
 const textSidebar = document.querySelectorAll('[data-animation_hide]');
+const btnMeusFavoritos = document.querySelectorAll('[data-favorito]');
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
 const userName = user.userName;
+const userImage = user.userImage;
+
 document.querySelectorAll('[data-user_name]').forEach(element => {
     element.textContent = userName;
 });
+
+document.querySelectorAll('[data-user_image]').forEach(element => {
+    element.src = userImage;
+    if (userImage === null) {
+        element.src = '../../img/icon_avatar.svg';
+    };
+});
+
+btnMeusFavoritos.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        console.log('funciona')
+    })
+})
 
 
 let sidebarOpen = localStorage.getItem('sidebarPreference') ? JSON.parse(localStorage.getItem('sidebarPreference')) : true;

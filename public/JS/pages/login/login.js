@@ -53,7 +53,8 @@ function armazenarDadosUsuario (usuario) {
     const userInfo = {
         userName: usuario.displayName,
         userEmail: usuario.email,
-        userId: usuario.uid
+        userId: usuario.uid,
+        userImage: usuario.photoURL
     }
     sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
 }
