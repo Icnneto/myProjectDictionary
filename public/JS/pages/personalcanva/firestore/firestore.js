@@ -32,7 +32,6 @@ onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
   });
 });
 
-
 // Adiciona um novo termo ao banco de dados e atualiza a referência no nó do usuário
 export async function registrarNovoTermo(listaInputs, uId) {
   const dadosCard = {
@@ -49,3 +48,5 @@ export async function registrarNovoTermo(listaInputs, uId) {
     throw error;
   }
 }
+
+// ADICIONAR LÓGICA PARA FAVORITAR TERMO
