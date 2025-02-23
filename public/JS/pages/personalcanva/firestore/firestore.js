@@ -3,10 +3,14 @@ import {
   getFirestore,
   collection,
   doc,
+  getDoc,
+  query,
+  where,
   addDoc,
   setDoc,
   onSnapshot
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
 import { criarEAcrescentarCard } from "../formCard.js";
 const user = JSON.parse(sessionStorage.getItem("userInfo"));
 const userId = user.userId;
@@ -14,20 +18,19 @@ const userId = user.userId;
 const db = getFirestore(app);
 
 const userCollection = collection(db, "users");
-const termosCollection = collection(db, "termos");
-// const databaseRef = doc(db, "users", userId);
+const termosCollectionUserRef = doc(userCollection, userId);
 
 // resgatar dados e mostrar para usuário
-// onSnapshot(userCollection, (snapshot) => {
-//   snapshot.docChanges().forEach((change) => {
-//     if (change.type === "added") {
-//       const ref = change.doc.data();
-//       // estou acessando os termos
-//       // preciso resgatar os ids para poder chamar o formCard
-//       console.log(ref.termos)
-//     }
-//   })
-// });
+onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
+  snapshot.docChanges().forEach((change) => {
+    if (change.type === "added") {
+      const ref = change.doc.data();
+      const refkeys = change.doc.id;
+
+      criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado);
+    }
+  });
+});
 
 
 // Adiciona um novo termo ao banco de dados e atualiza a referência no nó do usuário
@@ -39,28 +42,10 @@ export async function registrarNovoTermo(listaInputs, uId) {
   };
 
   try {
-    const addTerm = await addDoc(termosCollection, dadosCard);
-    const newTermKey = addTerm.id;
-
-    // user terá ID com base no seu Uid,
-    // diferentemente do Termo cujo id é criado aleatorimente pelo firestore
-    const userKey = uId;
-
-    await setDoc(
-      doc(userCollection, userKey),
-      {
-        termos: {
-          [newTermKey]: true,
-        },
-      },
-      { merge: true }
-    );
-
-    return newTermKey;
+    await addDoc(collection(termosCollectionUserRef, "termos"), dadosCard);
+    
   } catch (error) {
     console.error("Error adding document: ", error);
     throw error;
   }
 }
-
-console.log('Estou aqui')
