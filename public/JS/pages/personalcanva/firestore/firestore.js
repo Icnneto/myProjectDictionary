@@ -3,6 +3,7 @@ import {
   getFirestore,
   collection,
   doc,
+  updateDoc,
   getDoc,
   query,
   where,
@@ -49,4 +50,20 @@ export async function registrarNovoTermo(listaInputs, uId) {
   }
 }
 
-// ADICIONAR LÓGICA PARA FAVORITAR TERMO
+export async function favoritarTermoDatabase(cardKey) {
+  const dbRef = doc(termosCollectionUserRef, "termos", cardKey);
+  try {
+    const snapshot = await getDoc(dbRef)
+    await updateDoc(dbRef, { 
+      favoritado: !(snapshot.data().favoritado) 
+    });
+
+    const updatedSnapshot = await getDoc(dbRef);
+    const favoritadoVal = updatedSnapshot.data().favoritado;
+    return favoritadoVal ? 'favoritado' : 'desfavoritado';
+
+  } catch (error) {
+    console.error("Erro ao favoritar termo:", error);
+    return false;
+  }
+}

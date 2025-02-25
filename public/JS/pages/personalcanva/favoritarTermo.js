@@ -1,4 +1,4 @@
-// import { favoritarTermoDatabase } from "./realtimeDatabase.js";
+import { favoritarTermoDatabase } from "./firestore/firestore.js";
 const main = document.querySelector('main');
 const user = JSON.parse(sessionStorage.getItem('userInfo'));
 
