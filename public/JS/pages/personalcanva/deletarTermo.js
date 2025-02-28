@@ -1,4 +1,4 @@
-// import { deletarTermoDatabase } from "./realtimeDatabase.js";
+import { deletarTermoDatabase } from "./firestore/firestore.js";
 const modal = criarModalExclusao();
 document.querySelector('main').append(modal);
 

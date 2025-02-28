@@ -4,11 +4,10 @@ import {
   collection,
   doc,
   updateDoc,
+  deleteField,
+  deleteDoc,
   getDoc,
-  query,
-  where,
   addDoc,
-  setDoc,
   onSnapshot
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
@@ -67,3 +66,7 @@ export async function favoritarTermoDatabase(cardKey) {
     return false;
   }
 }
+
+export async function deletarTermoDatabase(cardKey) {
+    await deleteDoc(doc(termosCollectionUserRef, 'termos', cardKey))
+};
