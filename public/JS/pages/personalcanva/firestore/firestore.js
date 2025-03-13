@@ -33,10 +33,10 @@ onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
       criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado);
     } 
     
-    if (change.type === "modified") {
-      console.log("Termo modificado:", ref);
-      atualizarCardNaUI(ref.termo, ref.descricao, refkeys, ref.favoritado);
-    }
+    // if (change.type === "modified") {
+    //   console.log("Termo modificado:", ref);
+    //   atualizarCardNaUI(ref.termo, ref.descricao, refkeys, ref.favoritado);
+    // }
   });
 });
 

@@ -2,6 +2,7 @@ import { registrarNovoTermo } from "./firestore/firestore.js";
 import { favoritarCard } from "./favoritarTermo.js";
 import { exibirModalEdicao } from "./editarTermo.js";
 import { exibirModalExclusao } from "./deletarTermo.js";
+import { criarExibirToast } from "../../components/toast.js"
 const formulario = document.querySelector('[data-form_add-termo]');
 const inputsFormulario = document.querySelectorAll('[data-input_new-term]')
 const secaoListaTermos = document.querySelector('#lista-termos');
@@ -60,11 +61,15 @@ formulario.addEventListener('submit', async (e) => {
     try {
         const userId = user.userId;
         await registrarNovoTermo(listaInputs, userId);
-        exibirToastSucesso();
+        const mensagem = 'Termo adicionado com sucesso!'
+        const funcionalidade = 'positivo'
+        criarExibirToast(mensagem, funcionalidade, main);
 
     } catch (error) {
         console.error("Erro ao registrar o termo:", error);
-        exibirToastFalha();
+        const mensagem = 'Falha ao adicionar Termo!'
+        const funcionalidade = 'negativo'
+        criarExibirToast(mensagem, funcionalidade, main);
     }
 
     limparCamposFormularios(inputsFormulario);
@@ -119,56 +124,6 @@ function criarEAcrescentarCard(termo, descricao, dbKey, favoritado) {
     });
 
     secaoListaTermos.appendChild(divPai);
-};
-
-function exibirToastSucesso() {
-    let mensagemSucesso = 'Termo adicionado com sucesso!'
-
-    const toastAdicao = document.createElement('div');
-    toastAdicao.classList.add(
-        'toast',
-        'toast-bottom',
-        'toast-right',
-        'z-50'
-    );
-
-    toastAdicao.innerHTML = `
-        <div class="alert font-quicksand text-green-600 border-green-600 bg-branco-fundo">
-            <span>${mensagemSucesso}</span>
-        </div>
-    `
-
-    main.append(toastAdicao);
-
-    setTimeout(() => {
-        toastAdicao.remove();
-    }, 2000);
-
-};
-
-function exibirToastFalha() {
-    let mensagemFalha = 'Falha ao adicionar Termo!'
-
-    const toastFalha = document.createElement('div');
-    toastFalha.classList.add(
-        'toast',
-        'toast-bottom',
-        'toast-right',
-        'z-50'
-    );
-
-    toastFalha.innerHTML = `
-        <div class="alert font-quicksand text-red-600 border-red-600 bg-branco-fundo">
-            <span>${mensagemFalha}</span>
-        </div>
-    `
-
-    main.append(toastFalha);
-
-    setTimeout(() => {
-        toastFalha.remove();
-    }, 2000);
-
 };
 
 function limparCamposFormularios(inputs) {
