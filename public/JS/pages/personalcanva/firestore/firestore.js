@@ -1,17 +1,8 @@
 import { app } from "../../../firebaseConfig.js";
-import {
-  getFirestore,
-  collection,
-  doc,
-  updateDoc,
-  deleteDoc,
-  getDoc,
-  setDoc,
-  addDoc,
-  onSnapshot
-} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { getFirestore, collection, doc, updateDoc, deleteDoc, getDoc, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { criarEAcrescentarCard } from "../../../components/cardTermo.js";
 
-import { criarEAcrescentarCard } from "../formCard.js";
+const secaoListaTermos = document.querySelector('#lista-termos');
 const user = JSON.parse(sessionStorage.getItem("userInfo"));
 const userId = user.userId;
 
@@ -20,8 +11,6 @@ const db = getFirestore(app);
 const userCollection = collection(db, "users");
 const termosCollectionUserRef = doc(userCollection, userId);
 
-
-
 // resgatar dados e mostrar para usuário
 onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
   snapshot.docChanges().forEach((change) => {
@@ -29,8 +18,7 @@ onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
     const refkeys = change.doc.id;
 
     if (change.type === "added") { 
-      console.log("Novo termo adicionado:", ref);
-      criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado);
+      criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado, secaoListaTermos);
     } 
     
     // if (change.type === "modified") {

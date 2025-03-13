@@ -1,4 +1,4 @@
-function criarExibirToast (mensagem, funcionalidade,body) {
+function criarExibirToast(mensagem, funcionalidade, body) {
     let mensagemParaUser = mensagem;
 
     const addToast = document.createElement('div');
@@ -19,6 +19,14 @@ function criarExibirToast (mensagem, funcionalidade,body) {
     if (funcionalidade === 'negativo') {
         addToast.innerHTML = `
             <div class="alert font-quicksand text-red-600 border-red-600 bg-branco-fundo">
+            <span>${mensagemParaUser}</span>
+        </div>
+        `
+    };
+
+    if (funcionalidade === 'aviso') {
+        addToast.innerHTML = `
+            <div class="alert font-quicksand text-preto-padrao border-laranja-medio bg-branco-fundo">
             <span>${mensagemParaUser}</span>
         </div>
         `
