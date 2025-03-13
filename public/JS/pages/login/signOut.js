@@ -1,5 +1,5 @@
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-import { app } from "../../firebaseConfig.js";
+import { app } from "../../firebaseConfig.js"
 
 const auth = getAuth(app);
 
