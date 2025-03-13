@@ -1,6 +1,7 @@
 import { app } from "../../../firebaseConfig.js";
-import { getFirestore, collection, doc, updateDoc, deleteDoc, getDoc, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { getFirestore, collection, doc, updateDoc, deleteDoc, getDoc, addDoc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 import { criarEAcrescentarCard } from "../../../components/cardTermo.js";
+import { atualizarCardNaUI } from "../editarTermo.js";
 
 const secaoListaTermos = document.querySelector('#lista-termos');
 const user = JSON.parse(sessionStorage.getItem("userInfo"));
@@ -12,21 +13,36 @@ const userCollection = collection(db, "users");
 const termosCollectionUserRef = doc(userCollection, userId);
 
 // resgatar dados e mostrar para usuário
-onSnapshot(collection(termosCollectionUserRef, "termos"), (snapshot) => {
-  snapshot.docChanges().forEach((change) => {
-    const ref = change.doc.data();
-    const refkeys = change.doc.id;
+onSnapshot(
+  collection(termosCollectionUserRef, "termos"),
+  { includeMetadataChanges: true },
+  (snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      const ref = change.doc.data();
+      const refkeys = change.doc.id;
 
-    if (change.type === "added") { 
-      criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado, secaoListaTermos);
-    } 
-    
-    // if (change.type === "modified") {
-    //   console.log("Termo modificado:", ref);
-    //   atualizarCardNaUI(ref.termo, ref.descricao, refkeys, ref.favoritado);
-    // }
+      if (change.type === "added") {
+        criarEAcrescentarCard(ref.termo, ref.descricao, refkeys, ref.favoritado, secaoListaTermos);
+      }
+
+      if (change.type === "modified") {
+        console.log("Termo modificado:", ref);
+        console.log("Valores recebidos:", {
+          termo: ref.termo,
+          descricao: ref.descricao,
+          refkeys: refkeys,
+          favoritado: ref.favoritado,
+          secao: secaoListaTermos
+        });
+        try {
+          atualizarCardNaUI(ref.termo, ref.descricao, refkeys, ref.favoritado, secaoListaTermos);
+        } catch (error) {
+          console.error("Erro ao atualizar card na UI:", error);
+        }
+      };
+    });
   });
-});
+
 
 // Adiciona um novo termo ao banco de dados e atualiza a referência no nó do usuário
 export async function registrarNovoTermo(listaInputs, uId) {
@@ -67,41 +83,23 @@ export async function deletarTermoDatabase(cardKey) {
   await deleteDoc(doc(termosCollectionUserRef, 'termos', cardKey));
 };
 
+
 export async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
-  const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
+  console.log("📌 Iniciando edição...");
+  console.log("🔑 Chave do documento:", cardKey);
 
   try {
+    const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
+    console.log('Referência do firestore: ', dbRef.path)
+
+    const snapshot = await getDoc(dbRef);
     await updateDoc(dbRef, {
       termo: novoTermo,
       descricao: novaDescricao
     });
+
   } catch (error) {
-    console.error("Erro ao favoritar termo:", error);
-    throw error;
+    console.error("Erro ao editar termo:", error);
   }
+  return false;
 }
-
-// export async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
-//   const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
-//   console.log(getDoc(dbRef));
-//   console.log("Editando termo:", { novoTermo, novaDescricao, cardKey });
-
-//   try {
-//     // Await the setDoc operation
-//     await updateDoc(dbRef, {
-//       termo: novoTermo
-//     });
-
-//     await new Promise(resolve => setTimeout(resolve, 100));
-
-//     // Explicitly await getDoc
-//     const updatedSnapshot = await getDoc(dbRef);
-//     console.log("Documento atualizado:", updatedSnapshot.data());
-
-//     // Return the updated data if needed
-//     return updatedSnapshot.data();
-
-//   } catch (error) {
-//     console.error("Erro ao favoritar termo:", error);
-//     throw error; // Re-throw to allow handling in the calling function
-//   }
