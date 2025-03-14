@@ -5,7 +5,8 @@ import { exibirModalExclusao } from "../pages/personalcanva/deletarTermo.js";
 function criarEAcrescentarCard(termo, descricao, dbKey, favoritado, secao) {
     const divPai = document.createElement('div');
     const estilizacaoDivPai = [
-        'flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6'
+        'flex', 'flex-col', 'border', 'border-slate-200', 'rounded-xl', 'shadow-lg', 'px-4', 'py-6', 'w-[300px]', 'gap-y-6',
+        'md:break-inside-avoid', 'mb-8'
     ];
     divPai.classList.add(...estilizacaoDivPai);
     divPai.id = 'card';
@@ -16,7 +17,7 @@ function criarEAcrescentarCard(termo, descricao, dbKey, favoritado, secao) {
     const setFavoritado = favoritado ? 'fill-laranja-fraco' : 'fill-none';
 
     divPai.innerHTML = `
-        <div class="flex flex-row items-center gap-y-4 gap-x-6 mx-2 place-content-between">
+        <div class="grid grid-cols-2 items-center gap-y-4 gap-x-2 mx-2 place-content-between">
             <h4 data-termo class="text-lg text-laranja-escuro font-semibold flex-wrap">${termo}</h4>
             <div class="flex flex-row gap-x-2 items-center">
                 <img data-editar-termo class="w-7 h-7 cursor-pointer p-1 rounded-lg hover:bg-gray-200" src="${iconeEditar}" 
