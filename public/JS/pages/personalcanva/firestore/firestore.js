@@ -26,14 +26,6 @@ onSnapshot(
       }
 
       if (change.type === "modified") {
-        console.log("Termo modificado:", ref);
-        console.log("Valores recebidos:", {
-          termo: ref.termo,
-          descricao: ref.descricao,
-          refkeys: refkeys,
-          favoritado: ref.favoritado,
-          secao: secaoListaTermos
-        });
         try {
           atualizarCardNaUI(ref.termo, ref.descricao, refkeys, ref.favoritado, secaoListaTermos);
         } catch (error) {
@@ -84,22 +76,22 @@ export async function deletarTermoDatabase(cardKey) {
 };
 
 
-export async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
-  console.log("📌 Iniciando edição...");
-  console.log("🔑 Chave do documento:", cardKey);
+// export async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
+//   console.log("Iniciando edição...");
+//   console.log("Chave do documento:", cardKey);
 
-  try {
-    const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
-    console.log('Referência do firestore: ', dbRef.path)
+//   try {
+//     const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
+//     console.log('Referência do firestore: ', dbRef.path)
 
-    const snapshot = await getDoc(dbRef);
-    await updateDoc(dbRef, {
-      termo: novoTermo,
-      descricao: novaDescricao
-    });
+//     const snapshot = await getDoc(dbRef);
+//     await updateDoc(dbRef, {
+//       termo: novoTermo,
+//       descricao: novaDescricao
+//     });
 
-  } catch (error) {
-    console.error("Erro ao editar termo:", error);
-  }
-  return false;
-}
+//   } catch (error) {
+//     console.error("Erro ao editar termo:", error);
+//   }
+//   return false;
+// }
