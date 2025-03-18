@@ -83,12 +83,13 @@ exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (even
     }
     const data = snapshot.data();
     const userId = event.params.usersId;
+    console.log(`AQUI ESTÁ O USERID: ${userId}`);
     const objectId = event.params.termoId;
 
     return index.saveObject({ 
       ...data, 
-      objectID: objectId, 
-      userId: userId
+      userId: userId,
+      objectID: objectId 
     })
       .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
       .catch(err => console.error("Erro ao indexar:", err));
