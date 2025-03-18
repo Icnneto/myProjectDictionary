@@ -1,5 +1,7 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
+const algoliasearch = require('algoliasearch');
+const { onDocumentCreated } = require('firebase-functions/firestore');
 
 const serviceAccountKey = 'serviceAccountKey.json';
 
@@ -63,5 +65,32 @@ exports.editarTermo = functions.https.onRequest(async (req, res) => {
     console.error("🔥 Erro ao atualizar termo:", error);
     return res.status(500).json({ error: "Erro ao atualizar termo", details: error.message });
   }
+});
+
+// Algolia
+const appId = process.env.ALGOLIA_ID;
+const apiKey = process.env.ALGOLIA_API;
+
+const client = algoliasearch(appId, apiKey);
+const index = client.initIndex('cards');
+
+exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (event) => {
+    const snapshot = event.data;
+
+    if (!snapshot) {
+      console.log("Nenhum dado encontrado");
+      return;
+    }
+    const data = snapshot.data();
+    const userId = event.params.usersId;
+    const objectId = event.params.termoId;
+
+    return index.saveObject({ 
+      ...data, 
+      objectID: objectId, 
+      userId: userId
+    })
+      .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
+      .catch(err => console.error("Erro ao indexar:", err));
 });
 
