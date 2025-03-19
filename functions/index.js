@@ -1,7 +1,7 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const algoliasearch = require('algoliasearch');
-const { onDocumentCreated } = require('firebase-functions/firestore');
+// const { onDocumentCreated } = require('firebase-functions/firestore');
 
 const serviceAccountKey = 'serviceAccountKey.json';
 
@@ -74,24 +74,50 @@ const apiKey = process.env.ALGOLIA_API;
 const client = algoliasearch(appId, apiKey);
 const index = client.initIndex('cards');
 
-exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (event) => {
-    const snapshot = event.data;
+exports.addToIndex = functions.https.onRequest(async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
+  };
 
-    if (!snapshot) {
-      console.log("Nenhum dado encontrado");
-      return;
-    }
-    const data = snapshot.data();
-    const userId = event.params.usersId;
-    console.log(`AQUI ESTÁ O USERID: ${userId}`);
-    const objectId = event.params.termoId;
+  const { userId, cardId, termo, descricao, favoritado } = req.body;
 
-    return index.saveObject({ 
-      ...data, 
-      userId: userId,
-      objectID: objectId 
-    })
-      .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
-      .catch(err => console.error("Erro ao indexar:", err));
+  try {
+    await index.saveObject({
+      termo: termo,
+      descricao: descricao,
+      favoritado: favoritado,
+      userID: userId,
+      path: `users/${userId}/termos/${cardId}`,
+      objectID: cardId
+    });
+    
+    console.log(`Termo ${cardId} indexado com sucesso!`);
+    return res.status(200).json({ success: true, message: `Termo indexado com sucesso` });
+  } catch (err) {
+    console.error("Erro ao indexar:", err);
+    return res.status(500).json({ success: false, error: "Erro ao indexar termo" });
+  }
+
 });
+
+// exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (event) => {
+//   const snapshot = event.data;
+
+//   if (!snapshot) {
+//     console.log("Nenhum dado encontrado");
+//     return;
+//   }
+//   const data = snapshot.data();
+//   const userId = event.params.usersId;
+//   console.log(`AQUI ESTÁ O USERID: ${userId}`);
+//   const objectId = event.params.termoId;
+
+//   return index.saveObject({
+//     ...data,
+//     userId: userId,
+//     objectID: objectId
+//   })
+//     .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
+//     .catch(err => console.error("Erro ao indexar:", err));
+// });
 
