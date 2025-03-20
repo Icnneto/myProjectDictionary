@@ -2,6 +2,11 @@ const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const algoliasearch = require('algoliasearch');
 // const { onDocumentCreated } = require('firebase-functions/firestore');
+const appId = process.env.ALGOLIA_ID;
+const apiKey = process.env.ALGOLIA_API;
+
+const client = algoliasearch(appId, apiKey);
+const index = client.initIndex('cards');
 
 const serviceAccountKey = 'serviceAccountKey.json';
 
@@ -58,6 +63,12 @@ exports.editarTermo = functions.https.onRequest(async (req, res) => {
       descricao: novaDescricao,
     });
 
+    await index.partialUpdateObject({
+      objectID: cardKey,
+      termo: novoTermo,
+      descricao: novaDescricao
+    });
+
     console.log(`✅ Termo ${cardKey} atualizado com sucesso`);
     return res.status(200).json({ success: true, message: "Termo atualizado com sucesso" });
 
@@ -68,12 +79,6 @@ exports.editarTermo = functions.https.onRequest(async (req, res) => {
 });
 
 // Algolia
-const appId = process.env.ALGOLIA_ID;
-const apiKey = process.env.ALGOLIA_API;
-
-const client = algoliasearch(appId, apiKey);
-const index = client.initIndex('cards');
-
 exports.addToIndex = functions.https.onRequest(async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método não permitido" });
