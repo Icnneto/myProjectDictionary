@@ -99,3 +99,25 @@ exports.addToIndex = functions.https.onRequest(async (req, res) => {
   }
 
 });
+
+exports.changeFavoriteIndex = functions.https.onRequest(async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
+  };
+
+  const { cardId, favoritado } = req.body;
+
+  try {
+    await index.partialUpdateObject({
+      objectID: cardId,
+      favoritado: favoritado
+    });
+    
+    console.log(`Termo ${cardId} atualizado com sucesso!`);
+    return res.status(200).json({ success: true, message: `Termo atualizado com sucesso` });
+  } catch (err) {
+    console.error("Erro ao indexar:", err);
+    return res.status(500).json({ success: false, error: "Erro ao atualizar termo" });
+  }
+
+});

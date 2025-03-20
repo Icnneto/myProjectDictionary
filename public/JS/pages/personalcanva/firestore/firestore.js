@@ -80,6 +80,16 @@ export async function favoritarTermoDatabase(cardKey) {
 
     const updatedSnapshot = await getDoc(dbRef);
     const favoritadoVal = updatedSnapshot.data().favoritado;
+
+    await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cardId: updatedSnapshot.id,
+        favoritado: favoritadoVal
+      })
+    });
+
     return favoritadoVal ? 'favoritado' : 'desfavoritado';
 
   } catch (error) {
