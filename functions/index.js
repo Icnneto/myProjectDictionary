@@ -99,25 +99,3 @@ exports.addToIndex = functions.https.onRequest(async (req, res) => {
   }
 
 });
-
-// exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (event) => {
-//   const snapshot = event.data;
-
-//   if (!snapshot) {
-//     console.log("Nenhum dado encontrado");
-//     return;
-//   }
-//   const data = snapshot.data();
-//   const userId = event.params.usersId;
-//   console.log(`AQUI ESTÁ O USERID: ${userId}`);
-//   const objectId = event.params.termoId;
-
-//   return index.saveObject({
-//     ...data,
-//     userId: userId,
-//     objectID: objectId
-//   })
-//     .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
-//     .catch(err => console.error("Erro ao indexar:", err));
-// });
-
