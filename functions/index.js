@@ -1,7 +1,7 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const algoliasearch = require('algoliasearch');
-const { onDocumentCreated } = require('firebase-functions/firestore');
+const { onDocumentWritten, Change, FirestoreEvent } = require('firebase-functions/v2/firestore');
 
 const serviceAccountKey = 'serviceAccountKey.json';
 
@@ -74,24 +74,29 @@ const apiKey = process.env.ALGOLIA_API;
 const client = algoliasearch(appId, apiKey);
 const index = client.initIndex('cards');
 
-exports.addToIndex = onDocumentCreated('users/{usersId}/termos/{termoId}', (event) => {
+exports.addToIndex = onDocumentWritten('users/{userId}/termos/{termoId}', (event) => {
     const snapshot = event.data;
 
     if (!snapshot) {
       console.log("Nenhum dado encontrado");
       return;
     }
+
     const data = snapshot.data();
-    const userId = event.params.usersId;
-    console.log(`AQUI ESTÁ O USERID: ${userId}`);
+    const userId = event.params['userId'];
     const objectId = event.params.termoId;
 
-    return index.saveObject({ 
-      ...data, 
-      userId: userId,
-      objectID: objectId 
-    })
-      .then(() => console.log(`Termo ${objectId} indexado com sucesso!`))
-      .catch(err => console.error("Erro ao indexar:", err));
+    try {
+      index.saveObject({
+        termo: data.termo,
+        descricao: data.descricao,
+        favoritado: false,
+        userId: userId,
+        objectID: objectId
+      });
+      return console.log(`Termo ${objectId} indexado com sucesso!`)
+    } catch (error) {
+      console.error(`Erro ao indexar termo ${objectId}:`, error);
+    };
 });
 
