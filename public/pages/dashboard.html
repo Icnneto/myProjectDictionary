@@ -36,13 +36,13 @@
                             <p class="text-preto-padrao text-base font-semibold" data-user_name></p>
                         </li>
                         <li class="border border-laranja-fraco/20 mb-4"></li>
-                        <li id="" class="flex flex-row items-center gap-x-2 pl-2 ml-1 mb-4 justify-start">
-                            <img class="w-[12%]" src="../img/icon_bookmark.svg" alt="icon of a bookmark in orange">
-                            <a class="text-preto-padrao text-sm" href="#">Meus Dicionários</a>
+                        <li data-filtrar_favorito class="flex flex-row items-center gap-x-2 pl-2 ml-1 mb-4 justify-start">
+                            <img class="w-[14%]" src="../img/icon_favorite.svg" alt="icon of a bookmark in orange">
+                            <button class="text-preto-padrao text-base">Meus Favoritos</button>
                         </li>
                         <li id="" class="flex flex-row items-center gap-x-2 pl-2 justify-start">
-                            <img class="w-[15%]" src="../img/icon_add-term.svg" alt="icon of a plus simbol">
-                            <a class="text-preto-padrao text-sm" onclick="modal_novoTermo.showModal()">Novo Termo</a>
+                            <img class="w-[12%]" src="../img/icon_add-term.svg" alt="icon of a plus simbol">
+                            <a class="text-preto-padrao text-base" onclick="modal_novoTermo.showModal()">Novo Termo</a>
                         </li>
                     </div>
                     <div class="mb-4">
@@ -70,15 +70,15 @@
                             <p class="text-preto-padrao font-semibold" data-animation_hide data-user_name></p>
                         </li>
                         <li class="w-[90%] border border-laranja-fraco/20 mb-4"></li>
-                        <li id=""
+                        <li data-filtrar_favorito
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_bookmark.svg"
+                            <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_favorite.svg"
                                 alt="icon of a bookmark in orange">
-                            <a class="text-preto-padrao text-lg" href="#" data-animation_hide>Meus Dicionários</a>
+                            <button class="text-preto-padrao text-lg">Meus Favoritos</button>
                         </li>
                         <li id="" onclick="modal_novoTermo.showModal()"
                             class="w-full cursor-pointer group flex flex-row items-center gap-x-2 p-2 justify-center hover:bg-slate-100 hover:rounded-lg">
-                            <img data-animation_sidebar class="w-7 duration-500" src="../img/icon_add-term.svg"
+                            <img data-animation_sidebar class="w-6 duration-500" src="../img/icon_add-term.svg"
                                 alt="icon of a plus simbol">
                             <a class="text-preto-padrao text-lg" data-animation_hide>Adicionar Termo</a>
                         </li>
@@ -165,6 +165,7 @@
     <script type="module" src="../JS/pages/login/signOut.js"></script>
     <script type="module" src="../JS/pages/personalcanva/sidebar.js"></script>
     <script type="module" src="../JS/pages/personalcanva/favoritarTermo.js"></script>
+    <script type="module" src="../JS/pages/personalcanva/filtrarFavoritado.js"></script>
     <script type="module" src="../JS/pages/personalcanva/deletarTermo.js"></script>
     <script type="module" src="../JS/pages/personalcanva/editarTermo.js"></script>
     <script type="module" src="../JS/pages/personalcanva/formCard.js"></script>
