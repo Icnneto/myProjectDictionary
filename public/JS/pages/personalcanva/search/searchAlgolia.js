@@ -6,8 +6,11 @@ const queryInput = document.querySelector('#search');
 const user = JSON.parse(sessionStorage.getItem("userInfo"));
 const userId = user.userId;
 
+const response = await fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey');
+const data = await response.json();
+
 const searchClient = await algoliasearch(
-    'RD9R3TLDU2',
+    data.algoliaId,
     '534d9aa726460c2680275a3a10efec99'
 );
 
