@@ -1,7 +1,12 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const algoliasearch = require('algoliasearch');
-const { onDocumentWritten, Change, FirestoreEvent } = require('firebase-functions/v2/firestore');
+// const { onDocumentCreated } = require('firebase-functions/firestore');
+const appId = process.env.ALGOLIA_ID;
+const apiKey = process.env.ALGOLIA_API;
+
+const client = algoliasearch(appId, apiKey);
+const index = client.initIndex('cards');
 
 const serviceAccountKey = 'serviceAccountKey.json';
 
@@ -22,7 +27,8 @@ exports.getApiKey = functions.https.onRequest((req, res) => {
       projectId: process.env.PROJECT_ID,
       storageBucket: process.env.STORAGE_BUCKET,
       messagingSenderId: process.env.MESSAGING_SENDER_ID,
-      appId: process.env.APP_ID
+      appId: process.env.APP_ID,
+      algoliaId: process.env.ALGOLIA_ID
     });
   });
 });
@@ -58,6 +64,12 @@ exports.editarTermo = functions.https.onRequest(async (req, res) => {
       descricao: novaDescricao,
     });
 
+    await index.partialUpdateObject({
+      objectID: cardKey,
+      termo: novoTermo,
+      descricao: novaDescricao
+    });
+
     console.log(`✅ Termo ${cardKey} atualizado com sucesso`);
     return res.status(200).json({ success: true, message: "Termo atualizado com sucesso" });
 
@@ -68,35 +80,50 @@ exports.editarTermo = functions.https.onRequest(async (req, res) => {
 });
 
 // Algolia
-const appId = process.env.ALGOLIA_ID;
-const apiKey = process.env.ALGOLIA_API;
+exports.addToIndex = functions.https.onRequest(async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
+  };
 
-const client = algoliasearch(appId, apiKey);
-const index = client.initIndex('cards');
+  const { userId, cardId, termo, descricao, favoritado } = req.body;
 
-exports.addToIndex = onDocumentWritten('users/{userId}/termos/{termoId}', (event) => {
-    const snapshot = event.data;
+  try {
+    await index.saveObject({
+      termo: termo,
+      descricao: descricao,
+      favoritado: favoritado,
+      userID: userId,
+      path: `users/${userId}/termos/${cardId}`,
+      objectID: cardId
+    });
+    
+    console.log(`Termo ${cardId} indexado com sucesso!`);
+    return res.status(200).json({ success: true, message: `Termo indexado com sucesso` });
+  } catch (err) {
+    console.error("Erro ao indexar:", err);
+    return res.status(500).json({ success: false, error: "Erro ao indexar termo" });
+  }
 
-    if (!snapshot) {
-      console.log("Nenhum dado encontrado");
-      return;
-    }
-
-    const data = snapshot.data();
-    const userId = event.params['userId'];
-    const objectId = event.params.termoId;
-
-    try {
-      index.saveObject({
-        termo: data.termo,
-        descricao: data.descricao,
-        favoritado: false,
-        userId: userId,
-        objectID: objectId
-      });
-      return console.log(`Termo ${objectId} indexado com sucesso!`)
-    } catch (error) {
-      console.error(`Erro ao indexar termo ${objectId}:`, error);
-    };
 });
 
+exports.changeFavoriteIndex = functions.https.onRequest(async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
+  };
+
+  const { cardId, favoritado } = req.body;
+
+  try {
+    await index.partialUpdateObject({
+      objectID: cardId,
+      favoritado: favoritado
+    });
+    
+    console.log(`Termo ${cardId} atualizado com sucesso!`);
+    return res.status(200).json({ success: true, message: `Termo atualizado com sucesso` });
+  } catch (err) {
+    console.error("Erro ao indexar:", err);
+    return res.status(500).json({ success: false, error: "Erro ao atualizar termo" });
+  }
+
+});

@@ -45,8 +45,25 @@ export async function registrarNovoTermo(listaInputs, uId) {
   };
 
   try {
-    await addDoc(collection(termosCollectionUserRef, "termos"), dadosCard);
+    const docRef = await addDoc(collection(termosCollectionUserRef, "termos"), dadosCard);
+    const docId = docRef.id;
+    
+    // indexar termo no Algolia
+    const response = await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/addToIndex", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: userId,
+        cardId: docId,
+        termo: listaInputs.termo,
+        descricao: listaInputs.descricao,
+        favoritado: false
+      })
+    });
 
+    const result = await response.json();
+    
+    return { id: docId, ...result };
   } catch (error) {
     console.error("Error adding document: ", error);
     throw error;
@@ -63,6 +80,16 @@ export async function favoritarTermoDatabase(cardKey) {
 
     const updatedSnapshot = await getDoc(dbRef);
     const favoritadoVal = updatedSnapshot.data().favoritado;
+
+    await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cardId: updatedSnapshot.id,
+        favoritado: favoritadoVal
+      })
+    });
+
     return favoritadoVal ? 'favoritado' : 'desfavoritado';
 
   } catch (error) {
@@ -74,24 +101,3 @@ export async function favoritarTermoDatabase(cardKey) {
 export async function deletarTermoDatabase(cardKey) {
   await deleteDoc(doc(termosCollectionUserRef, 'termos', cardKey));
 };
-
-
-// export async function editarTermoDatabase(novoTermo, novaDescricao, cardKey) {
-//   console.log("Iniciando edição...");
-//   console.log("Chave do documento:", cardKey);
-
-//   try {
-//     const dbRef = doc(termosCollectionUserRef, 'termos', cardKey);
-//     console.log('Referência do firestore: ', dbRef.path)
-
-//     const snapshot = await getDoc(dbRef);
-//     await updateDoc(dbRef, {
-//       termo: novoTermo,
-//       descricao: novaDescricao
-//     });
-
-//   } catch (error) {
-//     console.error("Erro ao editar termo:", error);
-//   }
-//   return false;
-// }

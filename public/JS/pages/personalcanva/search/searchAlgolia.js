@@ -1,42 +1,46 @@
+import { criarEAcrescentarCard } from "../../../components/cardTermo.js";
+
 const { liteClient: algoliasearch } = window['algoliasearch/lite'];
+const secaoListaTermos = document.querySelector('#lista-termos');
+const queryInput = document.querySelector('#search');
+const user = JSON.parse(sessionStorage.getItem("userInfo"));
+const userId = user.userId;
+
+const response = await fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey');
+const data = await response.json();
 
 const searchClient = await algoliasearch(
-    'RD9R3TLDU2',
+    data.algoliaId,
     '534d9aa726460c2680275a3a10efec99'
 );
 
-const search = instantsearch({
-    indexName: 'cards',
-    searchClient,
-});
-
-search.start();
-
-async function teste() {
+async function buscarTermo(query) {
     try {
-        const results = await searchClient.search([
+        const { results } = await searchClient.search([
             {
                 indexName: 'cards',
-                query: 'natal',
+                filters: `userID:${userId}`,
+                query: query,
             },
         ]);
-        console.log(results);
+
+       const hits = results[0].hits;
+       secaoListaTermos.innerHTML = '';
+       hits.forEach(hit => {
+        criarEAcrescentarCard(hit.termo, hit.descricao, hit.objectID, hit.favoritado, secaoListaTermos)
+       });
+       
     } catch (error) {
         console.error('Erro na busca:', error);
     }
-}
+};
 
-teste();
+queryInput.addEventListener('input', async (event) => {
+    const query = event.target.value;
 
-// Teste funcionou
-// Próximos passos:
-// 1 - em searchClient - appId tem que ser uma .env
-// 2 - filtro usuário
-// 3 - buscar a partir da query da search bar
-// 4 - mostrar resultados com criação dos cards
-
-
-
-
-
-
+    if (query.trim() === '') {
+        window.location.reload();
+    } else {
+        await buscarTermo(query);
+    }
+});
