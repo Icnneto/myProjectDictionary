@@ -1,3 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@plugin "daisyui";
+
+@theme {
+
+    --font-roboto: Roboto, sans-serif;
+    --font-quicksand: Quicksand, serif;
+
+    --color-branco-fundo: #FAFAFA;
+    --color-preto-padrao: #0D0D0D;
+    --color-laranja-fraco: #F28705;
+    --color-laranja-medio: #F27405;
+    --color-laranja-escuro: #8C3503;
+    --color-bege-padrao: ##A68F7B;
+
+    --rotate-360: '360deg'
+
+}
