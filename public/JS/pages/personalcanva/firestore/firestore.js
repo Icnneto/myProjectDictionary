@@ -1,5 +1,17 @@
 import { app } from "../../../firebaseConfig.js";
-import { getFirestore, collection, doc, updateDoc, deleteDoc, getDoc, addDoc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { 
+  getFirestore, 
+  collection, 
+  doc, 
+  updateDoc, 
+  deleteDoc, 
+  getDoc, 
+  addDoc, 
+  onSnapshot, 
+  query,
+  where,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 import { criarEAcrescentarCard } from "../../../components/cardTermo.js";
 import { atualizarCardNaUI } from "../editarTermo.js";
 
@@ -100,4 +112,19 @@ export async function favoritarTermoDatabase(cardKey) {
 
 export async function deletarTermoDatabase(cardKey) {
   await deleteDoc(doc(termosCollectionUserRef, 'termos', cardKey));
+};
+
+export async function resgatarECriarApenasFavoritos() {
+  const filter = query(collection(termosCollectionUserRef, 'termos'), where('favoritado', '==', true));
+  try {
+    const querySnapshot = await getDocs(filter);
+
+    querySnapshot.forEach((doc) => {
+      criarEAcrescentarCard(doc.data().termo, doc.data().descricao, doc.id, doc.data().favoritado, secaoListaTermos);
+    });
+
+  } catch (error) {
+    console.error("Erro ao filtrar termos:", error);
+    return 'Nenhum termo favoritado encontrado';
+  }
 };
