@@ -17,7 +17,11 @@ admin.initializeApp({
 
 // https://myprojectdictionary-9cb59.web.app
 // http://127.0.0.1:5033
-const cors = require('cors')({ origin: ' http://127.0.0.1:5033' });
+const cors = require('cors')({ 
+  origin: 'https://myprojectdictionary-9cb59.web.app',
+  methods: ['POST', 'OPTIONS', 'GET'],
+  allowedHeaders: ['Content-Type'] 
+});
 
 exports.getApiKey = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
@@ -35,11 +39,6 @@ exports.getApiKey = functions.https.onRequest((req, res) => {
 });
 
 exports.editarTermo = functions.https.onRequest((req, res) => {
-  if (req.method === "OPTIONS") {
-    res.set("Access-Control-Allow-Headers", "Content-Type"); // Headers permitidos
-    res.set("Access-Control-Allow-Methods", "POST"); // Métodos permitidos
-    return cors(req, res, () => res.status(204).send());
-  };
 
   cors(req, res, async () => {
     if (req.method !== "POST") {
@@ -90,13 +89,8 @@ exports.editarTermo = functions.https.onRequest((req, res) => {
 
 // Algolia
 exports.addToIndex = functions.https.onRequest((req, res) => {
-  if (req.method === "OPTIONS") {
-    res.set("Access-Control-Allow-Headers", "Content-Type"); // Headers permitidos
-    res.set("Access-Control-Allow-Methods", "POST"); // Métodos permitidos
-    return cors(req, res, () => res.status(204).send());
-  };
 
-  return cors(req, res, async () => {
+  cors(req, res, async () => {
     if (req.method !== "POST") {
       return res.status(405).json({ error: "Método não permitido" });
     };
@@ -123,11 +117,6 @@ exports.addToIndex = functions.https.onRequest((req, res) => {
 });
 
 exports.changeFavoriteIndex = functions.https.onRequest((req, res) => {
-  if (req.method === "OPTIONS") {
-    res.set("Access-Control-Allow-Headers", "Content-Type"); // Headers permitidos
-    res.set("Access-Control-Allow-Methods", "POST"); // Métodos permitidos
-    return cors(req, res, () => res.status(204).send());
-  };
 
   cors(req, res, async () => {
     if (req.method !== "POST") {

@@ -63,7 +63,7 @@ export async function registrarNovoTermo(listaInputs, uId) {
     // indexar termo no Algolia
     // http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/addToIndex
     // https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/addToIndex
-    const response = await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/addToIndex", {
+    const response = await fetch("https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/addToIndex", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -97,7 +97,7 @@ export async function favoritarTermoDatabase(cardKey) {
 
     // http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex
     // https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/changeFavoriteIndex
-    await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex", {
+    await fetch("https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/changeFavoriteIndex", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
