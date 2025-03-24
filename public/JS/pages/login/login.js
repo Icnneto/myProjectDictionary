@@ -11,7 +11,7 @@ auth.useDeviceLanguage();
 onAuthStateChanged(auth, (user) => {
     if (user) {
         armazenarDadosUsuario(user);
-        window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
+        window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
     } else {
         console.log('Realizar login')
     }
@@ -25,8 +25,8 @@ signInGoogle.addEventListener('click', async (e) => {
             const token = credential.accessToken;
             const user = result.user;
             armazenarDadosUsuario(user);
-            
-            window.location.href = 'http://127.0.0.1:5033/pages/dashboard.html';
+            // http://127.0.0.1:5033/pages/dashboard.html
+            window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/dashboard.html';
         })
         .catch((error) => {
             console.error('Erro ao realizar o login: ', error);

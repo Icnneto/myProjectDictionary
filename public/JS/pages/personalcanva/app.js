@@ -12,7 +12,7 @@ onAuthStateChanged(auth, (user) => {
         criarExibirToast(mensagem, funcionalidade, main);
         
         setTimeout(() => {
-            window.location.href = 'http://127.0.0.1:5033/pages/login.html';
+            window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/login.html';
         }, 2000);
     };
 });

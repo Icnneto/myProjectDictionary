@@ -16,7 +16,8 @@ admin.initializeApp({
 });
 
 // https://myprojectdictionary-9cb59.web.app
-const cors = require('cors')({ origin: 'http://127.0.0.1:5033' });
+// http://127.0.0.1:5033
+const cors = require('cors')({ origin: 'https://myprojectdictionary-9cb59.web.app' });
 
 exports.getApiKey = functions.https.onRequest((req, res) => {
   cors(req, res, () => {

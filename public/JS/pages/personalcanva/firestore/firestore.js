@@ -61,7 +61,8 @@ export async function registrarNovoTermo(listaInputs, uId) {
     const docId = docRef.id;
     
     // indexar termo no Algolia
-    const response = await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/addToIndex", {
+    // http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/addToIndex
+    const response = await fetch("https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/addToIndex", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -93,7 +94,8 @@ export async function favoritarTermoDatabase(cardKey) {
     const updatedSnapshot = await getDoc(dbRef);
     const favoritadoVal = updatedSnapshot.data().favoritado;
 
-    await fetch("http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex", {
+    // http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/changeFavoriteIndex
+    await fetch("https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/changeFavoriteIndex", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

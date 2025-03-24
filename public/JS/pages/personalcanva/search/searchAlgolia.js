@@ -6,7 +6,7 @@ const queryInput = document.querySelector('#search');
 const user = JSON.parse(sessionStorage.getItem("userInfo"));
 const userId = user.userId;
 
-const response = await fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey');
+const response = await fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey');
 const data = await response.json();
 
 const searchClient = await algoliasearch(
