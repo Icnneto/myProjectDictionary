@@ -5,6 +5,8 @@ const main = document.querySelector('main');
 
 const auth = getAuth(app);
 
+// http://127.0.0.1:5033/pages/login.html
+// https://myprojectdictionary-9cb59.web.app/pages/login.html
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         const mensagem = 'Necessário fazer login novamente!';
@@ -12,7 +14,7 @@ onAuthStateChanged(auth, (user) => {
         criarExibirToast(mensagem, funcionalidade, main);
         
         setTimeout(() => {
-            window.location.href = 'https://myprojectdictionary-9cb59.web.app/pages/login.html';
+            window.location.href = 'http://127.0.0.1:5033/pages/login.html';
         }, 2000);
     };
 });

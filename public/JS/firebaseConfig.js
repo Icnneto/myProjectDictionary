@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebas
 // http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey
 export async function initializeFirebase () {
     try {
-        const response = await fetch('https://us-central1-myprojectdictionary-9cb59.cloudfunctions.net/getApiKey');
+        const response = await fetch('http://127.0.0.1:5001/myprojectdictionary-9cb59/us-central1/getApiKey');
         const data = await response.json();
         
         const firebaseConfig = {
