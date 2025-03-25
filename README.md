@@ -12,7 +12,7 @@ Build a unified dictionary to ensure your team is on the same page. Standardize 
 - **Backend**:
   - Node.js
   - **Firebase**
-     - Authentication: user sign-in/sign-up
+     - Authentication: user sign-in
      - Firestore: NoSQL database for storing words and definitions.
 
 - **Extensions**:
@@ -39,7 +39,7 @@ users/{usersId}/termos/{termoId}/
 - **termos**: subcollection containing the user's registered terms.
 - **{termoId}**: unique ID of the registered term.
 
-Each document inside termos/{termoId} contains details about the term, as shown below:
+Each document inside `termos/{termoId}` contains details about the term, as shown below:
 
 ```bash
 "termo": string,
@@ -133,10 +133,10 @@ async function buscarTermo(query) {
 ```
 
 ## Conclusion ##
-`MyProjectDictionary` was built with the goal of studying new technologies and learning how to work with Firebase Firestore and Algolia.
+`MyProjectDictionary` was built with the goal of studying new technologies and learning how to work with Firebase and Algolia.
 
 🔧 The project is in continuous development, and suggestions for improvement are always welcome.
 
 🤝 Feel free to reach out for collaboration — the author is open to connections and happy to chat!
 
-Thanks for checking out the project! 🙌
+Thanks for checking out the project!
