@@ -1,6 +1,8 @@
 # MyProjectDictionary #
 
-Build a unified dictionary to ensure your team is on the same page. Standardize concepts and prevent project misalignment
+Build a unified dictionary to ensure your team is on the same page. Standardize concepts and prevent project misalignment.
+
+**link**: https://myprojectdictionary-9cb59.web.app/
 
 ## 🚀 Technologies ##
 
